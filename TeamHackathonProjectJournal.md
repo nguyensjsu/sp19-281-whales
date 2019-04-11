@@ -1,8 +1,8 @@
-# Team Hackathon Project
+### Team Hackathon Project
 
 ### We are the Whales!!!!
 
-### Whales 
+### Team Members
 
  1. Greeshma Vyas
  2. Prathamesh
