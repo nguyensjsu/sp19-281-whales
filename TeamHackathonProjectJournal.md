@@ -5,10 +5,11 @@
 ### Team Members
 
 To be updated with the github hyperlink to each person's github repo
- 1. Greeshma Vyas
- 2. Prathamesh
- 3. Saliha
- 4. Manjunath 
+ * Greeshma Vyas
+ * Manjunath 
+ * Prathamesh
+ * Saliha
+ 
 
 ### Project: 
 To be updated. Title and an introduction to what we have chosen.
