@@ -12,9 +12,11 @@ To be updated with the github hyperlink to each person's github repo
  
 
 ### Project: 
-To be updated. Title and an introduction to what we have chosen.
+#### The Future of Clipper
+To be updated. Add introduction to what we have chosen.
     
 ### Project Progress and challenges
+#### Design Phase
 
 #### Day 1 [04/10/2019] 
 a. Decided on having daily scrum meeting to follow up on team's progress. 
