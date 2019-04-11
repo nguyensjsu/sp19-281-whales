@@ -15,7 +15,7 @@ To be updated. Title and an introduction to what we have chosen.
     
 ### Project Progress and challenges
 
-##### Day 1 [04/10/2019] 
+#### Day 1 [04/10/2019] 
 a. Decided on having daily scrum meeting to follow up on team's progress. 
 
 b. We set a target for the team to finish the task, one week earlier to the submission date. The last week should be spent only on testing the application with all possible test cases. 
@@ -32,7 +32,7 @@ g. Agreed on researching about 3 applications [ Burger, Clipper and Payments] to
 
 **Challenges:** To understand each team member's approach and come to initial consensus in getting started off with the project
 
-##### Day 2 
+#### Day 2 
 a. We discussed about each person's idea of what can be built for our project. The suggestions included 
 * Future of clipper application
 * Using block chain on cloud to implement cryptocurrency.
