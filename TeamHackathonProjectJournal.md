@@ -70,6 +70,18 @@ Figuring out the application from many suggestions
 * That can be built in 10 days 
 * Also, that which proves scaling along different axes of the AKF cube.
 
+#### Day 3
+
+* Agenda: To meet in person and finalize on the application to be createed with all the microservices.
+* We discussed all the questions and possible flaws the clipper application can have and also, thought about the solution to create it as a web browser.
+* Came up with the following microservices for the application. Each team member was given ownership of each of the microservices.
+  1. Login/Sign up: Allocating random QR code for the customer each time they login is also taken care as part of this module.
+  2. Cash Wallet
+  3. Transaction History
+  4. Ability to check the services tied with the clipper application from the location the user accesses it.
+ 
+
+
 
 
 
