@@ -8,7 +8,7 @@ To be updated with the github hyperlink to each person's github repo
  * Greeshma Vyas
  * Manjunath 
  * Prathamesh
- * Saliha
+ * Saliha Mehboob
  
 
 ### Project: 
@@ -80,7 +80,11 @@ Figuring out the application from many suggestions
   3. Transaction History
   4. Ability to check the services tied with the clipper application from the location the user accesses it.
  
-
+#### Day 4
+Below are the points discussed in a meeting
+1. What database to use for what service with respect to consistency and availability.
+2. Analyze the dependencies of servces.
+3. Schema design
 
 
 
