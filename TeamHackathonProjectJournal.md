@@ -5,10 +5,10 @@
 ### Team Members
 
 To be updated with the github hyperlink to each person's github repo
- * Greeshma Vyas
- * Manjunath 
- * Prathamesh
- * Saliha Mehboob
+ * [Greeshma Vyas] (https://github.com/greeshmavyas)
+ * [Manjunatha Koni Gururaja] (https://github.com/konman01)
+ * [Prathamesh Karve] (https://github.com/PrathamR)
+ * [Saliha Mehboob] (https://github.com/salihasjsu)
  
 
 ### Project: 
