@@ -85,6 +85,7 @@ Below are the points discussed in a meeting
 1. What database to use for what service with respect to consistency and availability.
 2. Analyze the dependencies of servces.
 3. Schema design
+4. Decided the scalable factors in the project
 
 
 
