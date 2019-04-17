@@ -16,6 +16,14 @@ To be updated. Add introduction to what we have chosen.
 ### Project Progress and challenges
 #### Design Phase
 
+#### WOW factor ideas log!
+
+The plan is to eventually implement a couple of the following:
+1. protobuff
+2. grpc
+3. Autodeployment
+4. VPC peering
+
 #### Day 1 [04/10/2019] 
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
