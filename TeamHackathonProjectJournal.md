@@ -81,11 +81,14 @@ Figuring out the application from many suggestions
   4. Ability to check the services tied with the clipper application from the location the user accesses it.
  
 #### Day 4
-Below are the points discussed in a meeting
-1. What database to use for what service with respect to consistency and availability.
-2. Analyze the dependencies of servces.
+Had a brief meeting about the progress in each team member's progress towards creating the microservices. Discussed the high level overview of the following:
+1. The database to be used for the microservices depending on the use cases considering the parameter of consistency and availability.
+2. Though the microservices have independent functionality, there are some dependencies that are to be handled during the build phase. Discussed about this aspect and also about how the integration of these services can be made.
 3. Schema design
-4. Decided the scalable factors in the project
+4. Decided the scalable factors in the project. 
+5. Talked about performance betterment by using protobuff instead of marshalling when trying to convert the json input to our services.
+
+
 
 
 
