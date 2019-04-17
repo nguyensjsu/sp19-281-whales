@@ -17,6 +17,10 @@ To be updated. Add introduction to what we have chosen.
 #### Design Phase
 
 #### Day 1 [04/10/2019] 
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
+
+**Agenda:** Project kickoff meeting
+
 a. Decided on having daily scrum meeting to follow up on team's progress. 
 
 b. We set a target for the team to finish the task, one week earlier to the submission date. The last week should be spent only on testing the application with all possible test cases. 
@@ -33,7 +37,11 @@ g. Agreed on researching about 3 applications [ Burger, Clipper and Payments] to
 
 **Challenges:** To understand each team member's approach and come to initial consensus in getting started off with the project
 
-#### Day 2 
+#### Day 2 [04/11/2019] 
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
+
+**Agenda:** Discuss each person's project idea proposal and try to converge on one by the end of the meeting
+
 a. We discussed about each person's idea of what can be built for our project. The suggestions included 
 * Future of clipper application
 * Using block chain on cloud to implement cryptocurrency.
@@ -68,9 +76,11 @@ Figuring out the application from many suggestions
 * That can be built in 10 days 
 * Also, that which proves scaling along different axes of the AKF cube.
 
-#### Day 3
+#### Day 3 [04/11/2019] 
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
-* Agenda: To meet in person and finalize on the application to be createed with all the microservices.
+**Agenda:** To meet in person and finalize on the application to be createed with all the microservices.
+
 * We discussed all the questions and possible flaws the clipper application can have and also, thought about the solution to create it as a web browser.
 * Came up with the following microservices for the application. Each team member was given ownership of each of the microservices.
   1. Login/Sign up: Allocating random QR code for the customer each time they login is also taken care as part of this module.
@@ -78,14 +88,16 @@ Figuring out the application from many suggestions
   3. Transaction History
   4. Ability to check the services tied with the clipper application from the location the user accesses it.
  
-#### Day 4
-Had a brief meeting about the progress in each team member's progress towards creating the microservices. Discussed the high level overview of the following:
+#### Day 4 [04/12/2019] 
+**Attendees:** Greeshma, Prathamesh, Saliha
+
+**Agenda:** Had a brief meeting about each team member's progress towards designing their microservices. Discussed the high level overview of the following:
+
 1. The database to be used for the microservices depending on the use cases considering the parameter of consistency and availability.
 2. Though the microservices have independent functionality, there are some dependencies that are to be handled during the build phase. Discussed about this aspect and also about how the integration of these services can be made.
 3. Schema design
 4. Decided the scalable factors in the project. 
-5. Talked about performance betterment by using protobuff instead of marshalling when trying to convert the json input to our services.
-
+5. Discussed about a possible "Wow factor" enhancement - Using gRPC and Protobuf instead of REST APIs and JSON marshalling for improving the performance of communication between microservices.
 
 
 
