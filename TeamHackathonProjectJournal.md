@@ -16,6 +16,14 @@ To be updated. Add introduction to what we have chosen.
 ### Project Progress and challenges
 #### Design Phase
 
+#### WOW factor ideas log!
+
+The plan is to eventually implement a couple of the following:
+1. protobuff
+2. grpc
+3. Autodeployment
+4. VPC peering
+
 #### Day 1 [04/10/2019] 
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
@@ -76,7 +84,7 @@ Figuring out the application from many suggestions
 * That can be built in 10 days 
 * Also, that which proves scaling along different axes of the AKF cube.
 
-#### Day 3 [04/11/2019] 
+#### Day 3 [04/12/2019] 
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** To meet in person and finalize on the application to be createed with all the microservices.
@@ -88,7 +96,7 @@ Figuring out the application from many suggestions
   3. Transaction History
   4. Ability to check the services tied with the clipper application from the location the user accesses it.
  
-#### Day 4 [04/12/2019] 
+#### Day 4 [04/13/2019] 
 **Attendees:** Greeshma, Prathamesh, Saliha
 
 **Agenda:** Had a brief meeting about each team member's progress towards designing their microservices. Discussed the high level overview of the following:
@@ -98,6 +106,27 @@ Figuring out the application from many suggestions
 3. Schema design
 4. Decided the scalable factors in the project. 
 5. Discussed about a possible "Wow factor" enhancement - Using gRPC and Protobuf instead of REST APIs and JSON marshalling for improving the performance of communication between microservices.
+
+#### 04/14/2019 to 04/16/2019
+Having understood the microservices [Login/SignUp, Payment, Transaction History and Clipper Menu] to be created, all of us spent a couple of days to brainstorm about the following aspects:
+
+1. APIs that each microservice will expose for other microservices and client
+
+2. Database schema / design for each microservice
+
+3. Propose a date when we will test our first end to end working prototype
+
+#### Day 8 [04/17/2019]
+**Attendees:** Greeshma, Prathamesh, Saliha
+
+**Agenda:** To discuss the progress each team member has made, with an idea to mutually help each other. 
+
+1. Each of us tried to explain the list of APIs that each microservice will expose for other microservices and client. Depicted it diagramatically for better understanding and ease while creating the go application.
+2. Decided to have each microservice running atleast locally within two days, so as to attempt to integrate them during the next in-person meeting. 
+3. There was a lot of enthusiasm among the team mates in proposing the "WOW factor" ideas. Decided to list them all and finally try to accomplish atleast a couple.
+
+
+
 
 
 
