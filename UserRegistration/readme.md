@@ -35,6 +35,9 @@ Create a QR code with username.
 Additional function can implement: forgot password.
 
 
+Additional Functions to be included: Delete User, Edit User.
+
+
 
 
 
