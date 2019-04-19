@@ -75,6 +75,8 @@
     
 ### Database Schema
 
+MongoDB cluster with sharding and replication 
+
 1. Collection User
 
  ```
