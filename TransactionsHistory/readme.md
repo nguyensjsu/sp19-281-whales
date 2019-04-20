@@ -32,3 +32,11 @@ __*Callers*__ - Wallet microservice
 * **uID - Identifies the user account that initiated the transaction**
 * **sID - Identifies the service with which the transaction is associated**
 * **price - A float that states how much money was spent on this transaction**
+
+#### Enhancements
+* Optional metadata field to store service-specific data
+
+
+## Server-side Code
+* Language - Go
+* Packages - yaml (for parsing configuration) - Will be replaced with env variables
