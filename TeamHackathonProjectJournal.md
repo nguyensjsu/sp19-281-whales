@@ -19,10 +19,9 @@ To be updated. Add introduction to what we have chosen.
 #### WOW factor ideas log!
 
 The plan is to eventually implement a couple of the following:
-1. protobuff
-2. grpc
-3. Autodeployment
-4. VPC peering
+1. grpc / Protobuf for marshalling instead of JSON
+2. Autodeployment using Jenkins
+3. VPC peering
 
 #### Day 1 [04/10/2019] 
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
