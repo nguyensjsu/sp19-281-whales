@@ -2,7 +2,7 @@
 
 APIs marked bold will be part of the first prototye
 
-1. **GET {base}/history** <br/>
+1. **GET {base}/transactions** <br/>
 Returns list of transactions in JSON <br/>
 __*Callers*__ - Client app
 
@@ -18,7 +18,7 @@ __*Callers*__ - Client app
 Get one transaction identified by tID with details <br/>
 __*Callers*__ - Client app
 
-5. **POST {base}/history** </span> <br/>
+5. **POST {base}/transactions** </span> <br/>
 Add a new transaction with details in the payload <br/>
 __*Callers*__ - Wallet microservice
 
