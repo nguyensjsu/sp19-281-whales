@@ -3,37 +3,31 @@ import (
 )
 
 type Repository struct {}
-type Account struct {
-    Id string `json:"id"`
-    ClipperId string `json:"clipperId"`
-    Balance float64 `json:"balance"`
-    Funds float64 `json:"funds"`
-    Fare float64 `json:"fare"`
-}
-var accounts = []Account{
-  Account{
+
+var accounts = []PaymentAccount{
+  PaymentAccount{
     Id: "1",
     ClipperId: "1",
     Balance: 23.1,
   },
-  Account{
+  PaymentAccount{
     Id: "2",
     ClipperId: "2",
     Balance: 232.1,
   },
-  Account{
+  PaymentAccount{
     Id: "3",
     ClipperId: "3",
     Balance: 2.1,
   },
 }
 
-func (r Repository) GetAllAccounts() []Account {
+func (r Repository) GetAllAccounts() []PaymentAccount {
   return accounts
 }
 
-func (r Repository) GetAccount(clipperId string) Account{
-  var acc Account
+func (r Repository) GetAccount(clipperId string) PaymentAccount{
+  var acc PaymentAccount
   for _,item := range accounts {
     if item.Id == clipperId {
       acc = item
@@ -41,11 +35,11 @@ func (r Repository) GetAccount(clipperId string) Account{
   }
   return acc
 }
-func (r Repository) CreateAccount(data Account) {
+func (r Repository) CreateAccount(data PaymentAccount) {
   accounts = append(accounts,account);
 }
 
-func (r Repository) AddFunds(data Account){
+func (r Repository) AddFunds(data PaymentAccount){
   for i,_ := range accounts {
     item := &accounts[i]
     if item.Id == data.Id {
@@ -55,7 +49,7 @@ func (r Repository) AddFunds(data Account){
   }
 }
 
-func (r Repository) PayFare(data Account){
+func (r Repository) PayFare(data PaymentAccount){
   for i,_ := range accounts {
     item := &accounts[i]
     if item.Id == data.Id {
