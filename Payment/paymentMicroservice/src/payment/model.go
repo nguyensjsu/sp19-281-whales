@@ -1,22 +1,26 @@
 package payment
 
+import(
+  "gopkg.in/mgo.v2/bson"
+  "time"
+)
 
 type PaymentAccount struct {
-    Id string `json:"id"`
-    ClipperId string `json:"clipperId"`
-    Balance float64 `json:"balance"`
-    Funds float64 `json:"funds"`
-    Fare float64 `json:"fare"`
-    DateCreated string `json:"dateCreated"`
-    PaymentMethods PaymentMethod `json:"paymentMethods"`
+    Id bson.ObjectId `bson:"_id,omitempty" json:"id"`
+    ClipperId string `bson:"clipperId" json:"clipperId"`
+    Balance float64 `bson:"balance" json:"balance"`
+    funds float64 `json:"funds"`
+    fare float64 `json:"fare"`
+    DateCreated time.Time `bson:"dateCreated" json:"dateCreated"`
+    PaymentMethods []PaymentMethod `bson:"paymentMethods" json:"paymentMethods"`
 
 }
 
 type PaymentMethod struct {
-  Id string `json:"id"`
-  Type  string `json:"paymentMethod"`
-  CardNumber  string `json:"cardNumber"`
-  ExpiryDate string `json:"expiry"`
-  Name string `json:"name"`
-  Cvv string `json:"cvv"`
+  Id bson.ObjectId `bson:"_id,omitempty" json:"id"`
+  Type  string `bson:"type" json:"type"`
+  CardNumber  string `bson:"cardNumber" json:"cardNumber"`
+  ExpiryDate string `bson:"ExpiryDate" json:"expiryDate"`
+  Name string `bson:"name" json:"name"`
+  Cvv string `bson:"cvv" json:"cvv"`
 }

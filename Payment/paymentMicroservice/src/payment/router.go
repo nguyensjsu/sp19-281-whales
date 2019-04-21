@@ -4,6 +4,7 @@ import (
   "log"
   "net/http"
   "github.com/gorilla/mux"
+  "configuration"
 )
 
 type Route struct {
@@ -19,31 +20,31 @@ var routes = Routes {
     Route {
       "InquireBalance",
       "GET",
-      "/inquire/{id}",
+      configuration.Config().BaseUrl+"{id}",
       controller.InquireBalance,
     },
     Route {
       "GetAllAccounts",
       "GET",
-      "/",
+      configuration.Config().BaseUrl,
       controller.GetAllAccounts,
     },
     Route{
       "CreateAccount",
       "POST",
-      "/addAccount",
+      configuration.Config().BaseUrl+"addaccount",
       controller.CreateAccount,
     },
     Route{
       "AddFunds",
       "POST",
-      "/addfunds",
+      configuration.Config().BaseUrl+"addfunds",
       controller.AddFunds,
     },
     Route{
       "PayFare",
       "POST",
-      "/payfare",
+      configuration.Config().BaseUrl+"payfare",
       controller.PayFare,
     },
 }

@@ -63,6 +63,8 @@ func (c *Controller) AddFunds(w http.ResponseWriter, r *http.Request){
       panic(err)
       w.WriteHeader(http.StatusBadRequest)
     }
+    // TO be decided later
+    //account.Balance = account.Balance + account.funds
     c.Repository.AddFunds(account)
     w.WriteHeader(http.StatusOK)
 }
@@ -79,6 +81,8 @@ func (c *Controller) PayFare(w http.ResponseWriter, r *http.Request){
       panic(err)
       w.WriteHeader(http.StatusBadRequest)
     }
+    // TI BE DECIDED LATER
+    //account.Balance = account.Balance - account.funds
     c.Repository.PayFare(account)
     w.WriteHeader(http.StatusOK)
 }

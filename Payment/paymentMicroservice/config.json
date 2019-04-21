@@ -1,3 +1,8 @@
 {
-     "ServerPort": "3000"
+     "ServerPort": "8000",
+     "DBServer":"localhost",
+     "DBPort":"27017",
+     "BaseUrl":"clipperpayments"
+
+
 }
