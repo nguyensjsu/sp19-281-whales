@@ -124,6 +124,43 @@ Having understood the microservices [Login/SignUp, Payment, Transaction History 
 2. Decided to have each microservice running atleast locally within two days, so as to attempt to integrate them during the next in-person meeting. 
 3. There was a lot of enthusiasm among the team mates in proposing the "WOW factor" ideas. Decided to list them all and finally try to accomplish atleast a couple.
 
+#### 04/18/2019 to 04/20/2019
+
+**Progress So Far**
+Greeshma Vyas:
+
+* Created the API desgin document that contains the details of all the APIs user Registration module will have.
+* Created the APIs specified in the document. The language used to build backend for the user module is GO.
+* Made an integration with MongoDB and tested the APIs locally.
+* Understood the session based authentication in GO.
+
+Manjunath:
+
+Prathamesh:
+
+Saliha:
+
+#### Day 11
+**Minutes of Meeting on 04/20/2018**
+**Attendees:** Greeshma, Prathamesh, Saliha
+**Agenda** : To track the progress in the project and set the future tasks.
+
+* Discussed the progress each of us have made so far as mentioned above in the 'Progress so far' section.
+* Discussed the implementation of front end.
+* Decided to have each module to be deployed on EC2 instances' docker hosts.
+* Thought through how to integrate the microservices into one single application if each microservice is deployed as EC2 instances on different accounts of AWS. Each of us should look up and decide the approach.
+* Also, shared ideas about session management to be done from the frontend or backend. Discussed whether to call any of the microservice that in turn sends the request to the user module to verify the authentication, or directly call the user module api from client side before the client tries to access any other module of the application. 
+* Set future tasks to get each of the microservices up and running and having them integrated with the database. Also, try to implement mongoDB replication and sharding to prove the scaling properties.
+
+#### 04/21/2019 to 04/23/2019
+ to update on tuesday
+
+
+
+
+
+
+
 
 
 
