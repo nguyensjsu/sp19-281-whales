@@ -125,10 +125,9 @@ Having understood the microservices [Login/SignUp, Payment, Transaction History 
 3. There was a lot of enthusiasm among the team mates in proposing the "WOW factor" ideas. Decided to list them all and finally try to accomplish atleast a couple.
 
 #### 04/18/2019 to 04/20/2019
+**Progress So Far** </br>
 
-**Progress So Far**
 Greeshma Vyas:
-
 * Created the API desgin document that contains the details of all the APIs user Registration module will have.
 * Created the APIs specified in the document. The language used to build backend for the user module is GO.
 * Made an integration with MongoDB and tested the APIs locally.
@@ -141,9 +140,9 @@ Prathamesh:
 Saliha:
 
 #### Day 11
-**Minutes of Meeting on 04/20/2018**
-**Attendees:** Greeshma, Prathamesh, Saliha
-**Agenda** : To track the progress in the project and set the future tasks.
+**Minutes of Meeting on 04/20/2018** </br>
+**Attendees:** Greeshma, Prathamesh, Saliha </br>
+**Agenda** : To track the progress in the project and set the future tasks. <br>
 
 * Discussed the progress each of us have made so far as mentioned above in the 'Progress so far' section.
 * Discussed the implementation of front end.
