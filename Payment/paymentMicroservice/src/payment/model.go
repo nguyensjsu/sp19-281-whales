@@ -19,8 +19,9 @@ type PaymentAccount struct {
 type PaymentMethod struct {
   Id bson.ObjectId `bson:"_id,omitempty" json:"id"`
   Type  string `bson:"type" json:"type"`
-  CardNumber  string `bson:"cardNumber" json:"cardNumber"`
-  ExpiryDate string `bson:"ExpiryDate" json:"expiryDate"`
+  Number  string `bson:"number" json:"number"`
+  Month string `bson:"month" json:"month"`
+  Year string `bson:"year" json:"year"`
   Name string `bson:"name" json:"name"`
   Cvv string `bson:"cvv" json:"cvv"`
 }

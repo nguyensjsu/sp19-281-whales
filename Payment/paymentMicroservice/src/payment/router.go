@@ -47,6 +47,12 @@ var routes = Routes {
       configuration.Config().BaseUrl+"payfare",
       controller.PayFare,
     },
+    Route{
+      "ValidateCard",
+      "POST",
+      configuration.Config().BaseUrl+"validatecard",
+      controller.ValidateCard,
+    },
 }
 
 func NewRouter() *mux.Router {

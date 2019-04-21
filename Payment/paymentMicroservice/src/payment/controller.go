@@ -5,6 +5,7 @@ import(
   "encoding/json"
   "github.com/gorilla/mux"
   "io/ioutil"
+  "github.com/asaskevich/govalidator"
 )
 
 type Controller struct {
@@ -85,4 +86,22 @@ func (c *Controller) PayFare(w http.ResponseWriter, r *http.Request){
     //account.Balance = account.Balance - account.funds
     c.Repository.PayFare(account)
     w.WriteHeader(http.StatusOK)
+}
+
+func (c *Controller) ValidateCard(w http.ResponseWriter, r *http.Request) {
+  body,err := ioutil.ReadAll(r.Body)
+  if err != nil {
+    panic(err)
+    w.WriteHeader(http.StatusBadRequest)
+  }
+  var paymentMethod PaymentMethod
+    err = json.Unmarshal(body, &paymentMethod);
+    if err != nil {
+      panic(err)
+      w.WriteHeader(http.StatusBadRequest)
+    }
+    validCreditCard := govalidator.IsCreditCard(paymentMethod.Number)
+    w.WriteHeader(http.StatusOK)
+    data,_ := json.Marshal(validCreditCard)
+    w.Write(data)
 }
