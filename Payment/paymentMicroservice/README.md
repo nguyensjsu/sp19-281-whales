@@ -5,8 +5,9 @@ with online application. The payment module of the application has the following
 2. Add funds to your account.
 3. Pay fare 
 The application will allow the user to refill the account and pay fare using variety fo payment methods like credit,debit and wallet etc.
+-----
 [17-04-2019]
-Following are the uris of apis implemented with in memory data:
+Following are the uris of apis implemented with in-memory data:
 ### GET:
 ```
 /                                 --> Get All Accounts
