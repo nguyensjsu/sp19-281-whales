@@ -5,8 +5,8 @@ with online application. The payment module of the application has the following
 2. Add funds to your account.
 3. Pay fare 
 The application will allow the user to refill the account and pay fare using variety fo payment methods like credit,debit and wallet etc.
-
-Following are the uris of apis implemented:
+[17-04-2019]
+Following are the uris of apis implemented with in memory data:
 ### GET:
 ```
 /                                 --> Get All Accounts
@@ -19,6 +19,9 @@ inquirebalance/{id}               --> Inquire current balance
 /addfunds                         --> Add money in your account
 /payfare                          --> Pay for you fare
 ```
+[20-04-2019]
+## Configurations
+***github.com/tkanos/gonfig*** package is used to read configurations from a config.json file. 
 
 ## Database 
-A cluster of riak database is being used to store the data.
+Setup MongoDB replica set with 3 nodes. Integration of mongo db with the application. 
