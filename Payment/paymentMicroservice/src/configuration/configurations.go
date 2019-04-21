@@ -8,6 +8,7 @@ type Configuration struct {
   ServerPort string
   DBServer string
   DBPort string
+  BaseUrl string
 }
 
 var configuration Configuration // project configurations
