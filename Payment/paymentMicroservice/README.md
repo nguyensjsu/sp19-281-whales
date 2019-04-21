@@ -23,13 +23,23 @@ Following are the uris of apis implemented with in-memory data:
 /validatecard                     --> validate payment iinformation      
 ```
 [20-04-2019]
+
 ## Configurations
 ***github.com/tkanos/gonfig*** package is used to read configurations from a config.json file. 
 
 ## Database 
 Setup MongoDB replica set with 3 nodes. Integration of mongo db with the application. 
+
+
 [21-04-2019]
+
 ***"github.com/asaskevich/govalidator"*** to validate the credit card number. 
+
+
 ***Card Validation*** Api completed.
+
+
 ***DB integration*** apis are now integrated with database.
+
+
 ***Testing*** Tested apis with database integrated.
