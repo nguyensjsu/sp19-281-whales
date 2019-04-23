@@ -29,6 +29,22 @@ Following are the uris of apis implemented with in-memory data:
 
 ## Database 
 Setup MongoDB replica set with 3 nodes. Integration of mongo db with the application. 
+```
+db.createUser( {
+        user: "clipperadmin",
+        pwd: "admin",
+        roles: [{ role: "root", db: "admin" }]
+    });
+
+      rs.initiate( {
+       _id : "eclipper",
+       members: [
+          { _id: 0, host: "primary:27017" },
+          { _id: 1, host: "secondary1:27017" },
+          { _id: 2, host: "secondary2:27017" }
+       ]
+    })
+    ```
 
 
 [21-04-2019]
