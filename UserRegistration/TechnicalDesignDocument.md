@@ -1,5 +1,3 @@
-###Technical design Document
-
 ### APIs
 0. Ping the API endpoint</br>
    **GET** {baseURL}/user/ping
@@ -193,7 +191,7 @@
    
   
     
-###Database Schema
+### Database Schema
 MongoDB cluster with sharding and replication
 
 1. Collection User
