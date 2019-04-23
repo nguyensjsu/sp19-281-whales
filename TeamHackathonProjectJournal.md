@@ -150,6 +150,7 @@ Saliha:
 * Thought through how to integrate the microservices into one single application if each microservice is deployed as EC2 instances on different accounts of AWS. Each of us should look up and decide the approach.
 * Also, shared ideas about session management to be done from the frontend or backend. Discussed whether to call any of the microservice that in turn sends the request to the user module to verify the authentication, or directly call the user module api from client side before the client tries to access any other module of the application. 
 * Set future tasks to get each of the microservices up and running and having them integrated with the database. Also, try to implement mongoDB replication and sharding to prove the scaling properties.
+***Saliha:*** Database cluster Integration with apis is completed.
 
 #### 04/21/2019 to 04/23/2019
  to update on tuesday
