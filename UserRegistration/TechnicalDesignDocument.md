@@ -1,10 +1,10 @@
-### Technical design Document
+###Technical design Document
 
 ### APIs
 0. Ping the API endpoint</br>
    **GET** {baseURL}/user/ping
 
-1. **POST**  {baseURL}/user/signup </br>
+1. **POST**  {baseURL}/users/signup </br>
    Callers: Client App </br>
    Content-Type: application/json </br>
    **Request**
@@ -45,7 +45,7 @@
     | message     | string  | Error Message
     
     
-2. **POST** {baseURL}/user/login</br>
+2. **POST** {baseURL}/users/signin</br>
    Callers: Client App </br>
 	Content-type: application/json </br>
 	**Request**
@@ -62,20 +62,139 @@
 	| firstName     | string  | User firstName
 	| lastname      | string  | User lastName
 	| email         | string  | User email
-	| token         | string  | jwtToken
+	| address         | Address  | every field detail of user's address
+	|id               |string| User's account number
+	|clipperid        |string| User's clipper id
 	
 	Parameters for Error (Status code: 401)
 	
 	| Parameter        | Type           | Description  |
 	| ------------- |:-------------:| -----:|
 	| message     | string  | Error Message
-	
-	
-    yet to update the edit and delete end points.
-    
-### Database Schema
 
-MongoDB cluster with sharding and replication 
+3. Get User by ID</br>
+	**GET** {baseURL}/users/:id </br>
+	Callers: Client App/ Other microservices</br>
+	Content-type: application/json</br>
+	 **Request** </br>
+    
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| id     | string  | user id
+
+
+	**Response**
+
+	Parameters for Success (Status code: 200)
+	
+	
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| firstName   | string  | User First Name
+	| lastName    | string  | User last name
+	| address     | string  | User address
+	| city        | string  | User city
+	| state       | string  | User state
+	| zipcode     | string  | User zipcode
+	| phone       | string  | User phone
+	| email       | string  | User email
+	|password     |string  | User password
+	|id               |string| User's account number
+	|clipperid        |string| User's clipper id
+
+	Parameters for Error (Status code: 401)
+	
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| message     | string  | Error Message
+	
+4. Delete User
+
+	**Delete** {baseURL}/users/:id </br>
+	Callers: Client App </br>
+   Content-type: application/json
+
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| id     | string  | user id
+
+
+	Response
+
+	Parameters for Success (Status code: 200)
+	
+	
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| message   | string  | Message with successful deletion of the user
+
+	Parameters for Error (Status code: 401)
+	
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| message     | string  | Error Message
+5. Edit user
+
+	**PUT** {baseURL}/users/:id</br>
+	Callers: Client App </br>
+	Content-type: application/json
+	**Request** </br>
+	email cannot be edited </br>
+	The following fields can be edited </br>
+
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| firstName   | string  | User First Name
+	| lastName    | string  | User last name
+	| address     | string  | User address
+	| city        | string  | User city
+	| state       | string  | User state
+	| zipcode     | string  | User zipcode
+	| phone       | string  | User phone
+	| password    | string  | User password 
+
+	Response
+
+	Parameters for Success (Status code: 200)
+	
+	
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| firstName   | string  | User First Name
+	| lastName    | string  | User last name
+	| address     | string  | User address
+	| city        | string  | User city
+	| state       | string  | User state
+	| zipcode     | string  | User zipcode
+	| phone       | string  | User phone
+	| email       | string  | User email
+	| password    | string  | User password
+
+	Parameters for Error (Status code: 401)
+	
+	
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| message     | string  | Error Message
+	
+6. Get All users
+
+	**GET** {baseURL}/users</br>
+	Callers: Other Microservices </br>
+	Content-type: application/json</br>
+	**Response** </br>
+	All the users in the db are returned with all the   fields
+	
+	Parameters for Error (Status code: 401)
+
+	| Parameter        | Type           | Description  |
+	| ------------- |:-------------:| -----:|
+	| message     | string  | Error Message
+   
+  
+    
+###Database Schema
+MongoDB cluster with sharding and replication
 
 1. Collection User
 
