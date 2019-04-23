@@ -66,8 +66,10 @@ func (c *Controller) AddFunds(w http.ResponseWriter, r *http.Request){
     }
     // TO be decided later
     //account.Balance = account.Balance + account.funds
+
     c.Repository.AddFunds(account)
     w.WriteHeader(http.StatusOK)
+
 }
 
 //POST - pay the amount of fare from current balance
@@ -104,4 +106,10 @@ func (c *Controller) ValidateCard(w http.ResponseWriter, r *http.Request) {
     w.WriteHeader(http.StatusOK)
     data,_ := json.Marshal(validCreditCard)
     w.Write(data)
+}
+
+
+func validateCard(pm PaymentMethod)bool{
+  validCreditCard := govalidator.IsCreditCard(pm.Number)
+  return validCreditCard
 }

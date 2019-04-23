@@ -1,8 +1,13 @@
 {
      "ServerPort": "8000",
-     "DBServer":"localhost",
-     "DBPort":"27017",
-     "BaseUrl":"/clipperpayments/"
-
-
+     "BaseUrl":"/clipperpayments/",
+     "DBUrl":"localhost:27017",
+     "ReplicaSetUrl":"mongodb://clipperadmin:admin@myip_1:3717,myip_2:3717/mydb?replicaSet=mgset-7234487&readPreference=primary&authSource=admin",
+     "AuthSource":"admin",
+     "ReadPreference":"primary",
+     "DBUser":"clipperadmin",
+     "DBPwd":"admin",
+     "DBName":"eclipper",
+     "ReplicaSet":"eclipper",
+     "Collection":"payments"
 }

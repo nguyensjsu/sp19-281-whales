@@ -4,7 +4,6 @@ import (
   "gopkg.in/mgo.v2"
   "gopkg.in/mgo.v2/bson"
   "log"
-  "fmt"
   "configuration"
 )
 
@@ -61,13 +60,24 @@ func (r Repository) PayFare(data PaymentAccount){
 }
 
 func  getSession() *mgo.Collection{
-  session, err := mgo.Dial(configuration.Config().DBServer+":"+configuration.Config().DBPort)
+  var url string
+  if configuration.Configs.Server1 == "" {
+    url = configuration.Config().DBUrl
+  } else{
+    url = "mongodb://" + configuration.Config().DBUser + ":" + configuration.Config().DBPwd
+    url = url + "@" + configuration.Configs.Server1 + "," + configuration.Configs.Server2
+    url = url + "," + configuration.Configs.Server3 + "/" + configuration.Config().DBName + "?replicaSet="
+    url = url + configuration.Config().ReplicaSet + "&readPreference=" + configuration.Config().ReadPreference
+    url = url + "&authSource="+configuration.Config().AuthSource
+  }
+  log.Println(url)
+  session, err := mgo.Dial(url)
           if err != nil {
                   panic(err)
           }
 // Optional. Switch the session to a monotonic behavior.
   session.SetMode(mgo.Monotonic, true)
-  return session.DB("clipper").C("payments")
+  return session.DB(configuration.Config().DBName).C(configuration.Config().Collection)
 }
 func closeSession() {
   session.Close()
@@ -75,5 +85,5 @@ func closeSession() {
 //TO BE DECIDED LATER
 func (r Repository)genXid() {
     id := xid.New()
-    fmt.Printf("github.com/rs/xid:   %s\n", id.String())
+    log.Printf("github.com/rs/xid:   %s\n", id.String())
 }

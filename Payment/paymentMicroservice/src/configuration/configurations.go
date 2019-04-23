@@ -6,17 +6,26 @@ import(
 
 type Configuration struct {
   ServerPort string
-  DBServer string
-  DBPort string
   BaseUrl string
+  Server1 string
+  Server2 string
+  Server3 string
+  DBUrl string
+  DBUser string
+  DBPwd string
+  ReadPreference string
+  DBName string
+  ReplicaSet string
+  AuthSource string
 }
 
-var configuration Configuration // project configurations
-
+var Configs = Configuration{}
+// project  Default configurations
 func Config() Configuration {
-  err := gonfig.GetConf("config.json", &configuration)
+  var configurations Configuration
+  err := gonfig.GetConf("config.json", &configurations)
   if err != nil {
     panic(err)
   }
-  return configuration
+  return configurations
 }
