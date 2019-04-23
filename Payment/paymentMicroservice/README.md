@@ -44,7 +44,8 @@ db.createUser( {
           { _id: 2, host: "secondary2:27017" }
        ]
     })
-    ```
+    
+ ```
 
 
 [21-04-2019]
@@ -59,3 +60,14 @@ db.createUser( {
 
 
 ***Testing*** Tested apis with database integrated.
+
+```
+
+    go get github.com/asaskevich/govalidator
+    go get gopkg.in/mgo.v2
+    go get gopkg.in/mgo.v2/bson
+    go get github.com/tkanos/gonfig
+    go get github.com/rs/xid
+    go get github.com/gorilla/mux
+   
+```
