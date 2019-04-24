@@ -49,4 +49,10 @@ __*Callers*__ - Wallet microservice
 
 ## Server-side Code
 * Language - Go
-* Packages - yaml (for parsing configuration) - Will be replaced with env variables
+* Packages - 
+
+1. yaml (for parsing configuration) - Will be replaced with env variables
+2. codegangsta/negroni - Web server
+3. gorilla/mux - Router for serving requests
+4. unrolled/render - Formatting request/response content
+5. satori/go.uuid - Generating IDs for storing in MongoDB
