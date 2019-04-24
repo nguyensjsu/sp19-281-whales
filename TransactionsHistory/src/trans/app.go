@@ -1,21 +1,22 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
-	"encoding/json"
-	"github.com/codegangsta/negroni"
-	"github.com/unrolled/render"
-	"github.com/satori/go.uuid"
-	"gopkg.in/mgo.v2"
-    "gopkg.in/mgo.v2/bson"
+    "fmt"
+    "log"
+    "net/http"
+    "encoding/json"
+    "github.com/codegangsta/negroni"
+    "github.com/gorilla/mux"
+    "github.com/unrolled/render"
+    "github.com/satori/go.uuid"
+    "gopkg.in/mgo.v2"
+//    "gopkg.in/mgo.v2/bson"
 )
 
 // MongoDB Config
 // ToDo : Get from config
 var mongodb_server = "localhost"
-var mongodb_database = "cmpe281"
+var mongodb_database = "eclipper"
 var mongodb_collection = "transactions"
 
 // NewServer configures and returns a Server.
@@ -57,33 +58,42 @@ func pingHandler(formatter *render.Render) http.HandlerFunc {
 
 // API Gumball Machine Handler
 func getTransListHandler(formatter *render.Render) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
-		session, err := mgo.Dial(mongodb_server)
+    return func(w http.ResponseWriter, req *http.Request) {
+
+        session, err := mgo.Dial(mongodb_server)
         if err != nil {
-                panic(err)
+            panic(err)
         }
         defer session.Close()
         session.SetMode(mgo.Monotonic, true)
         c := session.DB(mongodb_database).C(mongodb_collection)
-        var result bson.M
-        err = c.Find(bson.M{"SerialNumber" : "1234998871109"}).One(&result)
+        result := make([]transactions, 0, 10)
+
+        err = c.Find(nil).All(&result)
         if err != nil {
-                log.Fatal(err)
+            log.Fatal(err)
         }
-        fmt.Println("Gumball Machine:", result )
-		formatter.JSON(w, http.StatusOK, result)
+
+        fmt.Println("Transactions:", result )
+            formatter.JSON(w, http.StatusOK, result)
 	}
 }
 
 // API Create New Transaction
 func createNewTransHandler(formatter *render.Render) http.HandlerFunc {
     return func(w http.ResponseWriter, req *http.Request) {
-        decoder := json.NewDecoder(req.Body)
-        var t test_struct
-        err := decoder.Decode(&t)
+
+        var t transReq
+        _ = json.NewDecoder(req.Body).Decode(&t)
+
+        session, err := mgo.Dial(mongodb_server)
         if err != nil {
-            panic(err)
+                panic(err)
         }
+        defer session.Close()
+        session.SetMode(mgo.Monotonic, true)
+        c := session.DB(mongodb_database).C(mongodb_collection)
+
         log.Println(t.UserId)
         log.Println(t.ServiceId)
         log.Println(t.Price)
@@ -93,8 +103,14 @@ func createNewTransHandler(formatter *render.Render) http.HandlerFunc {
             TransId:   uuid.String(),
             UserId:    t.UserId,
             ServiceId: t.ServiceId,
-            Price:     t.Price
+            Price:     t.Price,
+        }
+
+        err = c.Insert(trans)
+	if err != nil {
+	    fmt.Printf("insert fail %v\n", err)
         }
 
         formatter.JSON(w, http.StatusOK, "Done")
+    }
 }
