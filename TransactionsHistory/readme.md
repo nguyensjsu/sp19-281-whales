@@ -27,14 +27,24 @@ __*Callers*__ - Wallet microservice
 * MongoDB cluster with sharding and replication
 * Document fields marked bold will be part of the first prototype
 
-#### Typical document structure
+#### Typical document structure - version 1
 * **tID - Unique transaction identifier**
 * **uID - Identifies the user account that initiated the transaction**
 * **sID - Identifies the service with which the transaction is associated**
 * **price - A float that states how much money was spent on this transaction**
 
+#### Document structure with metadata - version 2
+* Will include all 4 fields from version 1
+* **mFlag - Flag indicating whether metadata is present**
+* **sLoc - Starting location for the commute**
+* **eLoc - Ending location for the commute**
+
 #### Enhancements
 * Optional metadata field to store service-specific data
+* VTA Light rail - Only starting station 
+* VTA Bus - Only starting bus stop
+* Ford Bikes - Start and end bike station
+* Caltrain - Start and end train station
 
 
 ## Server-side Code
