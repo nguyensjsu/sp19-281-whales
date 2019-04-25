@@ -2,16 +2,23 @@
 
 ### We are the Whales!!!!
 
-### Team Members
-
- * [Greeshma Vyas](https://github.com/greeshmavyas)
- * [Manjunatha Koni Gururaja](https://github.com/konman01)
- * [Prathamesh Karve](https://github.com/PrathamR)
- * [Saliha Mehboob](https://github.com/salihasjsu)
-
 ### Project 
 #### The Future of Clipper
 To be updated. Add introduction to what we have chosen.
+
+### Microservices 
+* UserRegistration - Manage user registration, logging in and accounts info
+* ClipperMenu - Shows the list of available services to the user based on location
+* Payment - Allow users to add funds and validate payment while booking tickets
+* TransactionHistory - Maintain an always-accesible log of services bought by the user
+
+### Team Members
+
+ * [Greeshma Vyas](https://github.com/greeshmavyas) - UserRegistration
+ * [Manjunatha Koni Gururaja](https://github.com/konman01) - ClipperMenu
+ * [Prathamesh Karve](https://github.com/PrathamR) - TransactionsHistory
+ * [Saliha Mehboob](https://github.com/salihasjsu) - Payment
+
     
 ### Project Progress and challenges
 #### Design Phase
