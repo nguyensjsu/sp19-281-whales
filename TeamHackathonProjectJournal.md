@@ -136,6 +136,8 @@ Greeshma Vyas:
 Manjunath:
 
 Prathamesh:
+* Created GET and POST APIs in Go
+* Created database design
 
 Saliha:
 
@@ -151,6 +153,14 @@ Saliha:
 * Also, shared ideas about session management to be done from the frontend or backend. Discussed whether to call any of the microservice that in turn sends the request to the user module to verify the authentication, or directly call the user module api from client side before the client tries to access any other module of the application. 
 * Set future tasks to get each of the microservices up and running and having them integrated with the database. Also, try to implement mongoDB replication and sharding to prove the scaling properties.
 ***Saliha:*** Database cluster Integration with apis is completed.
+
+#### 04/20/2019 to 04/24/2019
+**Progress So Far** </br>
+
+Prathamesh:
+* Added metadata
+* Containerized the application microservice and deployed to AWS
+* Tested with MongoDB hosted on AWS
 
 #### Day 15
 **Minutes of Meeting on 04/24/2018** </br>
