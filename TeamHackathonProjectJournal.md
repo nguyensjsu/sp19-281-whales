@@ -142,7 +142,7 @@ Saliha:
 #### Day 11
 **Minutes of Meeting on 04/20/2018** </br>
 **Attendees:** Greeshma, Prathamesh, Saliha </br>
-**Agenda** : To track the progress in the project and set the future tasks. <br>
+**Agenda:**  To track the progress in the project and set the future tasks. <br>
 
 * Discussed the progress each of us have made so far as mentioned above in the 'Progress so far' section.
 * Discussed the implementation of front end.
@@ -152,13 +152,16 @@ Saliha:
 * Set future tasks to get each of the microservices up and running and having them integrated with the database. Also, try to implement mongoDB replication and sharding to prove the scaling properties.
 ***Saliha:*** Database cluster Integration with apis is completed.
 
-#### 04/21/2019 to 04/23/2019
- to update on tuesday
+#### Day 15
+**Minutes of Meeting on 04/24/2018** </br>
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha </br>
+**Agenda:** To discuss roadblocks and pending tasks for each microservice and make a plan for frontend development
 
-
-
-
-
+* Discussed different strategies to handle user sessions
+* Discussed about the need of an additional API in Menu microservice
+* Brainstormed techniques for handling user ID to clipper ID mapping
+* Voted about frontend technologies, Angular is the winner
+* Will be meeting tomorrow (25th) to kickstart frontend coding
 
 
 
