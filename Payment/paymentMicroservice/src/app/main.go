@@ -4,27 +4,30 @@ import (
   "log"
   "net/http"
   "os"
-  "github.com/tkanos/gonfig"
+  "configuration"
   "payment"
-  "fmt"
 )
 
-var configuration Configuration // project configurations
 
 func main(){
-  err := gonfig.GetConf("config.json", &configuration)
-  if err != nil {
-    panic(err)
-  }
+  env()
   // start the http server
   router := payment.NewRouter()
   log.Fatal(http.ListenAndServe(port(), router))
 }
 
 func port() string {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = configuration.ServerPort
+	port := configuration.Configs.ServerPort
+  if port == "" {
+		port = configuration.Config().ServerPort
 	}
+  log.Println("Server running on "+ port)
 	return ":"+port
+}
+
+func env() {
+  configuration.Configs.ServerPort = os.Getenv("PORT")
+  configuration.Configs.Server1 = os.Getenv("server1")
+  configuration.Configs.Server2 = os.Getenv("server2")
+  configuration.Configs.Server3 = os.Getenv("server3")
 }
