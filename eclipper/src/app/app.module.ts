@@ -9,6 +9,10 @@ import { ServiceComponent } from './services/service.component';
 import { NavbarComponent } from './navibar/navbar.component';
 import { TeamMemberComponent } from './teammember/teammember.component';
 import { CommonHeaderComponent} from './commonheader/commonheader.component';
+import { MenuComponent } from './menu/menu.component';
+import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 
@@ -19,7 +23,11 @@ import { CommonHeaderComponent} from './commonheader/commonheader.component';
     ServiceComponent,
     NavbarComponent,
     TeamMemberComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
+    MenuComponent,
+    SignupComponent,
+    HomeComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
