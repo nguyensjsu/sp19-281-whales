@@ -30,7 +30,9 @@ The plan is to eventually implement a couple of the following:
 2. Autodeployment using Jenkins
 3. VPC peering
 
-#### Day 1 [04/10/2019] 
+#### Day 1 
+**Minutes of Meeting on 04/10/2019**
+
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** Project kickoff meeting
@@ -51,7 +53,9 @@ g. Agreed on researching about 3 applications [ Burger, Clipper and Payments] to
 
 **Challenges:** To understand each team member's approach and come to initial consensus in getting started off with the project
 
-#### Day 2 [04/11/2019] 
+#### Day 2
+**Minutes of Meeting on 04/11/2019**
+
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** Discuss each person's project idea proposal and try to converge on one by the end of the meeting
@@ -90,7 +94,9 @@ Figuring out the application from many suggestions
 * That can be built in 10 days 
 * Also, that which proves scaling along different axes of the AKF cube.
 
-#### Day 3 [04/12/2019] 
+#### Day 3 
+**Minutes of Meeting on 04/12/2019**
+
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** To meet in person and finalize on the application to be createed with all the microservices.
@@ -102,7 +108,9 @@ Figuring out the application from many suggestions
   3. Transaction History
   4. Ability to check the services tied with the clipper application from the location the user accesses it.
  
-#### Day 4 [04/13/2019] 
+#### Day 4
+**Minutes of Meeting on 04/13/2019**
+
 **Attendees:** Greeshma, Prathamesh, Saliha
 
 **Agenda:** Had a brief meeting about each team member's progress towards designing their microservices. Discussed the high level overview of the following:
@@ -112,6 +120,7 @@ Figuring out the application from many suggestions
 3. Schema design
 4. Decided the scalable factors in the project. 
 5. Discussed about a possible "Wow factor" enhancement - Using gRPC and Protobuf instead of REST APIs and JSON marshalling for improving the performance of communication between microservices.
+6. Decided about meeting every 3-4 days and not daily from now
 
 #### 04/14/2019 to 04/16/2019
 Having understood the microservices [Login/SignUp, Payment, Transaction History and Clipper Menu] to be created, all of us spent a couple of days to brainstorm about the following aspects:
@@ -122,7 +131,9 @@ Having understood the microservices [Login/SignUp, Payment, Transaction History 
 
 3. Propose a date when we will test our first end to end working prototype
 
-#### Day 8 [04/17/2019]
+#### Day 8
+**Minutes of Meeting on 04/17/2019**
+
 **Attendees:** Greeshma, Prathamesh, Saliha
 
 **Agenda:** To discuss the progress each team member has made, with an idea to mutually help each other. 
@@ -194,7 +205,7 @@ Database cluster Integration with apis is completed.
 
 
 #### Day 16
-**Minutes of Meeting on 04/25/2018**
+**Minutes of Meeting on 04/25/2018**</br>
 **Attendees:** Manjunatha, Prathamesh, Saliha </br>
 **Agenda:** Front-end development kickstart
 
