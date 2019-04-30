@@ -1,0 +1,23 @@
+.home{
+.margin-top-5 {
+  margin-top: 5vh;
+}
+
+.text-align-center{
+  text-align: center;
+}
+.clipper {
+    width:30vw;
+}
+@media screen and (max-width:480px) {
+  .clipper{
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px)  {
+    .clipper{
+      margin-top:5vh;
+    }
+  }
+
+}
