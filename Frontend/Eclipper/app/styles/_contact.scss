@@ -1,5 +1,6 @@
 .contact{
-.card{ background-colr: #fff; border: 1px solid transparent; border-radius: 6px; }
+  margin-left: 10vw;
+.card{ background-color: #fff; border: 1px solid #ddd; border-radius: 6px; }
 .card > .card-link{ color: #333; }
 .card > .card-link:hover{  text-decoration: none; }
 .card > .card-link .card-img img{ border-radius: 6px 6px 0 0; }
@@ -27,7 +28,7 @@
 .card .card-body .heading:last-child{ margin-bottom: 0; }
 
 .card .card-body .lead{ text-align: center; }
-
+.card .card-body .h1 {font-size:5vw; !important;}
 @media( min-width: 768px ){
   .card .card-left{ float: left; padding: 0 8px 0 0; }
   .card .card-right{ float: left; padding: 0 0 0 8px; }
@@ -50,7 +51,7 @@
 
 /* -- default theme ------ */
 .card-default{
-  border-color: #ddd;
+  border-color: 1px solid #ddd;
   background-color: #fff;
   margin-bottom: 24px;
 }

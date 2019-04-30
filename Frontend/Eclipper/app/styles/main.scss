@@ -4,6 +4,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 @import "home";
 @import "navbar";
+@import "contact";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -90,4 +91,15 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+
+.text-align-center{
+  text-align: center;
+}
+
+.footer {
+  height: 50px;
+  flex-shrink: 0;
+  background-color: #e5e5e5;
 }

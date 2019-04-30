@@ -33,12 +33,33 @@ angular
           },
 		    	  'content': {
 		    		templateUrl: 'views/home.html'
-          },
-          'footer': {
-          templateUrl: 'views/contact.html'
           }
 		      }
 		   })
+       .state('team', {
+           url: 'team',
+           parent: 'main',
+           views: {
+              'header': {
+              templateUrl: 'views/header.html'
+            },
+             'content': {
+             templateUrl: 'views/contact.html'
+            }
+           }
+        })
+        .state('menu', {
+            url: 'menu',
+            parent: 'main',
+            views: {
+               'header': {
+               templateUrl: 'views/header.html'
+             },
+              'content': {
+              templateUrl: 'views/servicemenu.html'
+             }
+            }
+         })
       $urlRouterProvider.otherwise('home');
 
 
