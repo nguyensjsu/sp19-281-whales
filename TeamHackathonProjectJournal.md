@@ -209,15 +209,20 @@ Database cluster Integration with apis is completed.
 **Progress So Far** </br>
 
 **Greeshma**
+
 * The application is ready with the required APIs. Tested locally. Also, dockerized the application. 
 * Now working on deploying it on AWS and integrating with Mongodb replicaset and testing the entire functioning.
 * Also, working on HTML part of the User microservice. 
 
 **Manjunath** 
+
 * Developed the home page for the application for which some changes have been suggested. 
 * Locally have the Menu microservice ready. Should deploy on cloud and test it with mongodb replication.
 
 **Prathamesh**
+
+* Local deployment on Docker is ready
+* Testing basic APIs + metadata completed
 * Working on transaction history HTML page after having completed the deployment of transaction history microservice on AWS.
 
 **Saliha**
