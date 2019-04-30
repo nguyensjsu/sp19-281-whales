@@ -159,15 +159,29 @@ Saliha:
 * Thought through how to integrate the microservices into one single application if each microservice is deployed as EC2 instances on different accounts of AWS. Each of us should look up and decide the approach.
 * Also, shared ideas about session management to be done from the frontend or backend. Discussed whether to call any of the microservice that in turn sends the request to the user module to verify the authentication, or directly call the user module api from client side before the client tries to access any other module of the application. 
 * Set future tasks to get each of the microservices up and running and having them integrated with the database. Also, try to implement mongoDB replication and sharding to prove the scaling properties.
-***Saliha:*** Database cluster Integration with apis is completed.
+
 
 #### 04/20/2019 to 04/24/2019
 **Progress So Far** </br>
 
-Prathamesh:
+**Greeshma** 
+* Added all the missed APIs to complete the user microservice.
+* Wrote the docker compose and dockerfile to containerize the application.
+* Working on mongoDB replication and sharding on AWS.
+
+**Manjunath** </br>
+Completed the menu microservice and the corresponding local testing. 
+
+**Prathamesh:**
 * Added metadata
 * Containerized the application microservice and deployed to AWS
 * Tested with MongoDB hosted on AWS
+
+***Saliha:*** </br>
+Database cluster Integration with apis is completed.
+
+
+
 
 #### Day 15
 **Minutes of Meeting on 04/24/2018** </br>
@@ -179,6 +193,40 @@ Prathamesh:
 * Brainstormed techniques for handling user ID to clipper ID mapping
 * Voted about frontend technologies, Angular is the winner
 * Will be meeting tomorrow (25th) to kickstart frontend coding
+
+#### Day 20
+**Minutes of Meeting on 04/29/2018** </br>
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha </br>
+**Agenda:** To discuss the progress in each microservice and discuss on the road-blocks in frontend development.
+
+* The front end developed by Manjunath, was reviewed and Saliha suggested that it is good to convert it to angular js so that it can be auto deployed on heroku from github.
+* Decided that Saliha will be taking up the angular js part of the project.
+* Decided that rest of the team members will be developing html pages for the microservices they own.
+* Next meet will be to integrate all the microservices and test the end to end functioning.
+
+
+#### 04/25/2019 to 04/29/2019
+**Progress So Far** </br>
+
+**Greeshma**
+* The application is ready with the required APIs. Tested locally. Also, dockerized the application. 
+* Now working on deploying it on AWS and integrating with Mongodb replicaset and testing the entire functioning.
+* Also, working on HTML part of the User microservice. 
+
+**Manjunath** 
+* Developed the home page for the application for which some changes have been suggested. 
+* Locally have the Menu microservice ready. Should deploy on cloud and test it with mongodb replication.
+
+**Prathamesh**
+* Working on transaction history HTML page after having completed the deployment of transaction history microservice on AWS.
+
+**Saliha**
+* Completed the mongoDB sharding and it's integration with payment microservice and the corresponding testing on AWS.
+* Working on angular js for the front end of the application.
+
+
+
+
 
 
 
