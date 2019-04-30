@@ -1,4 +1,4 @@
-.contact{
+.services{
   margin-left: 10vw;
 .card{ background-color: #fff; border: 1px solid #ddd; border-radius: 6px; }
 .card > .card-link{ color: #333; }
@@ -54,6 +54,8 @@
   border-color: 1px solid #ddd;
   background-color: #fff;
   margin-bottom: 24px;
+  max-height: 300px;
+overflow: scroll;
 }
 .card-default > .card-header,
 .card-default > .card-footer{ color: #333; background-color: #ddd; }
