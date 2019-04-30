@@ -60,7 +60,19 @@ angular
              }
             }
          })
-      $urlRouterProvider.otherwise('home');
+         .state('services', {
+             url: 'services',
+             parent: 'main',
+             views: {
+                'header': {
+                templateUrl: 'views/header.html'
+              },
+               'content': {
+               templateUrl: 'views/services.html'
+              }
+             }
+          })
+      $urlRouterProvider.otherwise('/home');
 
 
   });
