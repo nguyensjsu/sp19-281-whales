@@ -17,6 +17,7 @@ type Configuration struct {
   DBName string
   ReplicaSet string
   AuthSource string
+  Collection string
 }
 
 var Configs = Configuration{}

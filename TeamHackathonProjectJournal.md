@@ -2,16 +2,23 @@
 
 ### We are the Whales!!!!
 
-### Team Members
-
- * [Greeshma Vyas](https://github.com/greeshmavyas)
- * [Manjunatha Koni Gururaja](https://github.com/konman01)
- * [Prathamesh Karve](https://github.com/PrathamR)
- * [Saliha Mehboob](https://github.com/salihasjsu)
-
 ### Project 
 #### The Future of Clipper
 To be updated. Add introduction to what we have chosen.
+
+### Microservices 
+* UserRegistration - Manage user registration, logging in and accounts info
+* ClipperMenu - Shows the list of available services to the user based on location
+* Payment - Allow users to add funds and validate payment while booking tickets
+* TransactionHistory - Maintain an always-accesible log of services bought by the user
+
+### Team Members
+
+ * [Greeshma Vyas](https://github.com/greeshmavyas) - UserRegistration
+ * [Manjunatha Koni Gururaja](https://github.com/konman01) - ClipperMenu
+ * [Prathamesh Karve](https://github.com/PrathamR) - TransactionsHistory
+ * [Saliha Mehboob](https://github.com/salihasjsu) - Payment
+
     
 ### Project Progress and challenges
 #### Design Phase
@@ -23,7 +30,9 @@ The plan is to eventually implement a couple of the following:
 2. Autodeployment using Jenkins
 3. VPC peering
 
-#### Day 1 [04/10/2019] 
+#### Day 1 
+**Minutes of Meeting on 04/10/2019**
+
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** Project kickoff meeting
@@ -44,7 +53,9 @@ g. Agreed on researching about 3 applications [ Burger, Clipper and Payments] to
 
 **Challenges:** To understand each team member's approach and come to initial consensus in getting started off with the project
 
-#### Day 2 [04/11/2019] 
+#### Day 2
+**Minutes of Meeting on 04/11/2019**
+
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** Discuss each person's project idea proposal and try to converge on one by the end of the meeting
@@ -83,7 +94,9 @@ Figuring out the application from many suggestions
 * That can be built in 10 days 
 * Also, that which proves scaling along different axes of the AKF cube.
 
-#### Day 3 [04/12/2019] 
+#### Day 3 
+**Minutes of Meeting on 04/12/2019**
+
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha
 
 **Agenda:** To meet in person and finalize on the application to be createed with all the microservices.
@@ -95,7 +108,9 @@ Figuring out the application from many suggestions
   3. Transaction History
   4. Ability to check the services tied with the clipper application from the location the user accesses it.
  
-#### Day 4 [04/13/2019] 
+#### Day 4
+**Minutes of Meeting on 04/13/2019**
+
 **Attendees:** Greeshma, Prathamesh, Saliha
 
 **Agenda:** Had a brief meeting about each team member's progress towards designing their microservices. Discussed the high level overview of the following:
@@ -105,6 +120,7 @@ Figuring out the application from many suggestions
 3. Schema design
 4. Decided the scalable factors in the project. 
 5. Discussed about a possible "Wow factor" enhancement - Using gRPC and Protobuf instead of REST APIs and JSON marshalling for improving the performance of communication between microservices.
+6. Decided about meeting every 3-4 days and not daily from now
 
 #### 04/14/2019 to 04/16/2019
 Having understood the microservices [Login/SignUp, Payment, Transaction History and Clipper Menu] to be created, all of us spent a couple of days to brainstorm about the following aspects:
@@ -115,7 +131,9 @@ Having understood the microservices [Login/SignUp, Payment, Transaction History 
 
 3. Propose a date when we will test our first end to end working prototype
 
-#### Day 8 [04/17/2019]
+#### Day 8
+**Minutes of Meeting on 04/17/2019**
+
 **Attendees:** Greeshma, Prathamesh, Saliha
 
 **Agenda:** To discuss the progress each team member has made, with an idea to mutually help each other. 
@@ -123,6 +141,118 @@ Having understood the microservices [Login/SignUp, Payment, Transaction History 
 1. Each of us tried to explain the list of APIs that each microservice will expose for other microservices and client. Depicted it diagramatically for better understanding and ease while creating the go application.
 2. Decided to have each microservice running atleast locally within two days, so as to attempt to integrate them during the next in-person meeting. 
 3. There was a lot of enthusiasm among the team mates in proposing the "WOW factor" ideas. Decided to list them all and finally try to accomplish atleast a couple.
+
+#### 04/18/2019 to 04/20/2019
+**Progress So Far** </br>
+
+Greeshma Vyas:
+* Created the API desgin document that contains the details of all the APIs user Registration module will have.
+* Created the APIs specified in the document. The language used to build backend for the user module is GO.
+* Made an integration with MongoDB and tested the APIs locally.
+* Understood the session based authentication in GO.
+
+Manjunath:
+
+Prathamesh:
+* Created GET and POST APIs in Go
+* Created database design
+
+Saliha:
+
+#### Day 11
+**Minutes of Meeting on 04/20/2018** </br>
+**Attendees:** Greeshma, Prathamesh, Saliha </br>
+**Agenda:**  To track the progress in the project and set the future tasks. <br>
+
+* Discussed the progress each of us have made so far as mentioned above in the 'Progress so far' section.
+* Discussed the implementation of front end.
+* Decided to have each module to be deployed on EC2 instances' docker hosts.
+* Thought through how to integrate the microservices into one single application if each microservice is deployed as EC2 instances on different accounts of AWS. Each of us should look up and decide the approach.
+* Also, shared ideas about session management to be done from the frontend or backend. Discussed whether to call any of the microservice that in turn sends the request to the user module to verify the authentication, or directly call the user module api from client side before the client tries to access any other module of the application. 
+* Set future tasks to get each of the microservices up and running and having them integrated with the database. Also, try to implement mongoDB replication and sharding to prove the scaling properties.
+
+
+#### 04/20/2019 to 04/24/2019
+**Progress So Far** </br>
+
+**Greeshma** 
+* Added all the missed APIs to complete the user microservice.
+* Wrote the docker compose and dockerfile to containerize the application.
+* Working on mongoDB replication and sharding on AWS.
+
+**Manjunath** </br>
+Completed the menu microservice and the corresponding local testing. 
+
+**Prathamesh:**
+* Added metadata
+* Containerized the application microservice and deployed to AWS
+* Tested with MongoDB hosted on AWS
+
+***Saliha:*** </br>
+Database cluster Integration with apis is completed.
+
+
+#### Day 15
+**Minutes of Meeting on 04/24/2018** </br>
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha </br>
+**Agenda:** To discuss roadblocks and pending tasks for each microservice and make a plan for frontend development
+
+* Discussed different strategies to handle user sessions
+* Discussed about the need of an additional API in Menu microservice
+* Brainstormed techniques for handling user ID to clipper ID mapping
+* Voted about frontend technologies, Angular is the winner
+* Will be meeting tomorrow (25th) to kickstart frontend coding
+
+
+#### Day 16
+**Minutes of Meeting on 04/25/2018**</br>
+**Attendees:** Manjunatha, Prathamesh, Saliha </br>
+**Agenda:** Front-end development kickstart
+
+* Discussed about using bootstrap to quickly design the HTML pages
+* Decided to use AngularJS for Heroku deployment
+* Expored auto-deployment techniques for front-end
+
+
+#### Day 20
+**Minutes of Meeting on 04/29/2018** </br>
+**Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha </br>
+**Agenda:** To discuss the progress in each microservice and discuss on the road-blocks in frontend development.
+
+* The front end developed by Manjunath, was reviewed and Saliha suggested that it is good to convert it to angular js so that it can be auto deployed on heroku from github.
+* Decided that Saliha will be taking up the angular js part of the project.
+* Decided that rest of the team members will be developing html pages for the microservices they own.
+* Next meet will be to integrate all the microservices and test the end to end functioning.
+
+
+#### 04/25/2019 to 04/29/2019
+**Progress So Far** </br>
+
+**Greeshma**
+
+* The application is ready with the required APIs. Tested locally. Also, dockerized the application. 
+* Now working on deploying it on AWS and integrating with Mongodb replicaset and testing the entire functioning.
+* Also, working on HTML part of the User microservice. 
+
+**Manjunath** 
+
+* Developed the home page for the application for which some changes have been suggested. 
+* Locally have the Menu microservice ready. Should deploy on cloud and test it with mongodb replication.
+
+**Prathamesh**
+
+* Local deployment on Docker is ready
+* Testing basic APIs + metadata completed
+* Working on transaction history HTML page after having completed the deployment of transaction history microservice on AWS.
+
+**Saliha**
+* Completed the mongoDB sharding and it's integration with payment microservice and the corresponding testing on AWS.
+* Working on angular js for the front end of the application.
+
+
+
+
+
 
 
 
