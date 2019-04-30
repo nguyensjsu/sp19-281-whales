@@ -181,8 +181,6 @@ Completed the menu microservice and the corresponding local testing.
 Database cluster Integration with apis is completed.
 
 
-
-
 #### Day 15
 **Minutes of Meeting on 04/24/2018** </br>
 **Attendees:** Greeshma, Manjunatha, Prathamesh, Saliha </br>
@@ -193,6 +191,17 @@ Database cluster Integration with apis is completed.
 * Brainstormed techniques for handling user ID to clipper ID mapping
 * Voted about frontend technologies, Angular is the winner
 * Will be meeting tomorrow (25th) to kickstart frontend coding
+
+
+#### Day 16
+**Minutes of Meeting on 04/25/2018**
+**Attendees:** Manjunatha, Prathamesh, Saliha </br>
+**Agenda:** Front-end development kickstart
+
+* Discussed about using bootstrap to quickly design the HTML pages
+* Decided to use AngularJS for Heroku deployment
+* Expored auto-deployment techniques for front-end
+
 
 #### Day 20
 **Minutes of Meeting on 04/29/2018** </br>
