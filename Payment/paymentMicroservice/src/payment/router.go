@@ -53,6 +53,12 @@ var routes = Routes {
       configuration.Config().BaseUrl+"validatecard",
       controller.ValidateCard,
     },
+    Route{
+      "paymentMethod",
+      "POST",
+      configuration.Config().BaseUrl+"paymentMethod",
+      controller.updateAccount,
+    }
 }
 
 func NewRouter() *mux.Router {

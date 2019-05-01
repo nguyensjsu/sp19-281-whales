@@ -1,0 +1,126 @@
+<div class="col-lg-12 payment" ng-controller="paymentCtrl as pctrl">
+  <div class="panel panel-primary custom-panel">
+    <div class="panel-heading">
+      <h3 class="panel-title">Wallet</h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12">
+        <div class="thumbnail">
+          <div class="col-lg-12 balance">
+            <h3 class="text-align-center">US${{pctrl.payment.balance}}</h3>
+          </div>
+          <div class="col-lg-12 text-align-center">
+            <button type="button" class="btn btn-primary btn-lg" ng-click="pctrl.addFunds()">ADD FUNDS</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <h3>Payment Methods</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span>Visa</span>
+            <span style="float:right">7892XXXX</span></li>
+            <li class="list-group-item">Debit</li>
+          </ul>
+          <a ng-click="pctrl.addMethods()">Add Payment Method</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/ng-template" id="addFunds.html">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Add Funds</h3>
+    </div>
+    <div class="modal-body">
+      <div class='form-row' ng-hide={{afModal.methods<=0}}>
+        <div class='col-xs-12'>
+          <div class="radio" ng-repeat="item in afModal.methods">
+            <label><input type="radio" name="optradio" ng-checked="true">{{item}}</label>
+          </div>
+        </div>
+      </div>
+      <div class='form-row' ng-if="afModal.methods>0">
+        <div class='col-xs-12 form-group required'>
+          <label class='control-label'>Name on Card</label>
+          <input class='form-control' size='4' type='text'>
+        </div>
+      </div>
+      <div class='form-row' ng-if="afModal.methods>0">
+        <div class='col-xs-12 form-group card required'>
+          <label class='control-label'>Card Number</label>
+          <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+        </div>
+      </div>
+      <div class='form-row' ng-if="afModal.methods>0">
+        <div class='col-xs-4 form-group cvc required'>
+          <label class='control-label'>CVC</label>
+          <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+        </div>
+        <div class='col-xs-4 form-group expiration required' ng-if="afModal.methods>0">
+          <label class='control-label'>Expiration</label>
+          <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+        </div>
+        <div class='col-xs-4 form-group expiration required' ng-if="afModal.methods>0">
+          <label class='control-label'> </label>
+          <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+        </div>
+      </div>
+      <div class='form-row'>
+        <div class='col-xs-12 form-group card required'>
+          <label class='control-label'>Amount</label>
+          <input autocomplete='off' class='form-control amount' ng-model="afModal.amount" size='20' type='text'>
+        </div>
+      </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="afModal.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="afModal.cancel()">Cancel</button>
+      </div>
+    </script>
+<!---- PAYMENT METHODS --->
+    <script type="text/ng-template" id="paymentMethods.html">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Add Payment Methods</h3>
+      </div>
+      <div class="modal-body">
+        <div class='form-row'>
+          <div class='col-xs-12'>
+            <div class="radio" ng-repeat="item in amModal.types">
+              <label><input type="radio" name="optradio" ng-checked="item.checked">{{item.name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class='form-row'>
+          <div class='col-xs-12 form-group required'>
+            <label class='control-label'>Name on Card</label>
+            <input class='form-control' size='4' type='text' ng-model="amModal.paymentMethod.name">
+          </div>
+        </div>
+        <div class='form-row'>
+          <div class='col-xs-12 form-group card required'>
+            <label class='control-label'>Card Number</label>
+            <input autocomplete='off' class='form-control card-number' size='20' type='text' ng-model="amModal.paymentMethod.cardNumber">
+          </div>
+        </div>
+        <div class='form-row'>
+          <div class='col-xs-4 form-group cvc required'>
+            <label class='control-label'>CVC</label>
+            <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text' ng-model="amModal.paymentMethod.cvv">
+          </div>
+          <div class='col-xs-4 form-group expiration required'>
+            <label class='control-label'>Expiration</label>
+            <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' ng-model="amModal.paymentMethod.month">
+          </div>
+          <div class='col-xs-4 form-group expiration required'>
+            <label class='control-label'> </label>
+            <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' ng-model="amModal.paymentMethod.year">
+          </div>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" ng-click="amModal.ok()">OK</button>
+          <button class="btn btn-warning" type="button" ng-click="amModal.cancel()">Cancel</button>
+        </div>
+      </script>

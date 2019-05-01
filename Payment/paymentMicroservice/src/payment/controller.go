@@ -108,6 +108,19 @@ func (c *Controller) ValidateCard(w http.ResponseWriter, r *http.Request) {
     w.Write(data)
 }
 
+func (c *Controller) updateAccount(w http.ResponseWriter, r *http.Request){
+  body,err := ioutil.ReadAll(r.Body)
+  if err != nil {
+    panic(err)
+    w.WriteHeader(http.StatusBadRequest)
+}
+  err = json.Unmarshal([]byte(body), &account)
+  if err != nil {
+    panic(err)
+  }
+  c.Repository.updateAccount(account)
+  w.WriteHeader(http.StatusOK)
+}
 
 func validateCard(pm PaymentMethod)bool{
   validCreditCard := govalidator.IsCreditCard(pm.Number)

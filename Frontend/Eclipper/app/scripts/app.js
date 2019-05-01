@@ -16,9 +16,11 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap',
+    'LocalStorageModule'
   ])
-  .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  .config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
     $stateProvider
     .state('main', {
 		    url: '/',
@@ -72,7 +74,25 @@ angular
               }
              }
           })
+          .state('payment', {
+              url: 'payment',
+              parent: 'main',
+              views: {
+                 'header': {
+                 templateUrl: 'views/header.html'
+               },
+                'content': {
+                templateUrl: 'views/payment.html'
+               }
+              }
+           })
       $urlRouterProvider.otherwise('/home');
+      localStorageServiceProvider.setStorageType('localStorage');
 
 
+
+
+  })
+  .run(function(localStorageService){
+      localStorageService.set('userData',{"clipperId":"123"});
   });

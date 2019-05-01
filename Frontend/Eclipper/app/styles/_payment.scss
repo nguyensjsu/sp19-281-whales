@@ -1,0 +1,36 @@
+.payment{
+
+
+
+ .thumbnail {
+     display: block;
+     padding: 4px;
+     margin-bottom: 20px;
+     line-height: 1.42857143;
+     background-color: #fff;
+     border: 6px solid #D9D9D9;
+     border-radius: 15px;
+     -webkit-transition: border .2s ease-in-out;
+     -o-transition: border .2s ease-in-out;
+     transition: border .2s ease-in-out;
+     padding-left: 0px;
+     padding-right: 0px;
+     height: 30vh;
+ }
+ .balance{
+   margin-top: 5vh;
+   margin-bottom:10vh;
+ }
+
+
+@media screen and (min-width: 1000px) {
+  .custom-panel{
+    margin: auto;
+    width: 50vw;
+  }
+  .balance {
+    margin-top: 5vh;
+    margin-bottom:5vh;
+  }
+}
+}

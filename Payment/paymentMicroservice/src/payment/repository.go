@@ -59,6 +59,15 @@ func (r Repository) PayFare(data PaymentAccount){
   closeSession()
 }
 
+func (r Repository) updateAccount(data PaymentAccount){
+  c := getSession()
+  err := c.Update(bson.M{"clipperId":data.ClipperId},data)
+  if err != nil {
+    log.Fatal(err)
+  }
+  closeSession()
+}
+
 func  getSession() *mgo.Collection{
   var url string
   if configuration.Configs.Server1 == "" {
