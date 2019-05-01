@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.router',
     'ui.bootstrap',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ui.mask'
   ])
   .config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
     $stateProvider

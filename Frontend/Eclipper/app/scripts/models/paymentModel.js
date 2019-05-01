@@ -5,7 +5,7 @@ angular.module('eclipperApp')
     var paymentModelFactory = {};
 			var payment= {
 				  clipperId:"",
-          balance:0.00,
+          balance:Number(0).toFixed(2),
           funds:0.00,
           fare:0.00,
           paymentMethods:[]

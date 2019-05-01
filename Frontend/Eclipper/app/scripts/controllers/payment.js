@@ -7,6 +7,7 @@ angular.module('eclipperApp')
     if(user != null){
       self.payment.clipperId = user.clipperId;
     }
+    console.log(self.payment)
   }
   self.addFunds = function() {
     item="";
@@ -19,11 +20,11 @@ angular.module('eclipperApp')
      backdrop: false,
      resolve: {
        item: function () {
-         return item;
+         return self.payment;
        }
      }
-   }).result.then(function() {
-
+   }).result.then(function(pm) {
+      console.log(pm);
      }, function (){
        //TODO ERROR block
      });
@@ -55,11 +56,10 @@ angular.module('eclipperApp')
 
 	  	var self = this,
 	  	init = function () {
-        self.methods = item;
-        self.amount = 0.00;
+        self.payment = item;
 	  	}
       self.ok = function () {
-      $uibModalInstance.close();
+      $uibModalInstance.close(self.payment);
       };
 
   self.cancel = function () {
@@ -73,16 +73,25 @@ angular.module('eclipperApp')
       init = function () {
         self.paymentMethod = angular.copy(paymentModel.paymentMethod);
         self.types = self.getTypes();
+        self.checkedType = "1";
       }
       self.ok = function () {
-      $uibModalInstance.close(self.paymentMethod);
+        for(var i=0;i<self.types.length;i++){
+            if(self.types[i].id == self.checkedType){
+                self.paymentMethod.type = self.types[i].name;
+            }
+        }
+        $uibModalInstance.close(self.paymentMethod);
       };
+      self.radioCheck = function() {
+        console.log(self.types);
+      }
 
   self.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
     self.getTypes = function () {
-      return [{"name":"Visa","checked":true},{"name":"Debit","checked":false},{"name":"Cash","checked":false}]
+      return [{"id":"1","name":"Visa"},{"id":"2","name":"Debit"}]
     }
     init();
   });
