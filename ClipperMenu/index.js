@@ -1,4 +1,5 @@
 const path=require('path');
+var cors = require('cors')
 
 // importing the 3rd party packages
 const express = require("express");
@@ -9,6 +10,8 @@ const mongoose = require("mongoose");
 const router = require("./routes/router");
 
 const app = express();
+cors({credentials: true, origin: true})
+app.use(cors())
 
 app.set('view engine', 'ejs');
 app.set('views', 'view');
@@ -25,8 +28,8 @@ app.use('/', (req, res, next)=>{
 });
 
 // connnecting to mongdb and start the application on port 3000
-mongoose.connect('mongodb://localhost:27017/clipperMenu').then( result =>{
-        app.listen(3000, ()=>{
+mongoose.connect('mongodb://admin:password@10.0.1.50:27017/admin').then( result =>{
+        app.listen(8080, ()=>{
                 console.log("server is started and listening at port 3000!!");
         });
 }).catch( error =>{
