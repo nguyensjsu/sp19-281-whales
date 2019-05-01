@@ -134,7 +134,7 @@ Having understood the microservices [Login/SignUp, Payment, Transaction History 
 #### Day 8
 **Minutes of Meeting on 04/17/2019**
 
-**Attendees:** Greeshma, Prathamesh, Saliha
+**Attendees:** Greeshma, Prathamesh, Saliha, Manjunatha
 
 **Agenda:** To discuss the progress each team member has made, with an idea to mutually help each other. 
 
@@ -248,6 +248,31 @@ Database cluster Integration with apis is completed.
 **Saliha**
 * Completed the mongoDB sharding and it's integration with payment microservice and the corresponding testing on AWS.
 * Working on angular js for the front end of the application.
+
+#### 04/30/2019 to 04/03/2019
+
+**Progress So Far** </br>
+
+**Greeshma**
+
+* The application is ready with the required APIs. Tested locally. Also, dockerized the application. 
+* Now working on deploying it on AWS and integrating with Mongodb replicaset and testing the entire functioning.
+* Also, working on HTML part of the User microservice. 
+
+**Manjunath** 
+* Created containaralized application for nodejs backend in AWS with mongoDB cluster.
+* Completed Menu Microservice UI part
+* Hosted Frontend angular js application on Heroku
+
+**Prathamesh**
+
+* Local deployment on Docker is ready
+* Testing basic APIs + metadata completed
+* Working on transaction history HTML page after having completed the deployment of transaction history microservice on AWS.
+
+**Saliha**
+* Integration of Payment Service with Angular JS
+* Completed ngular js for the front end of the application.
 
 
 

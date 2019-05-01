@@ -29,6 +29,7 @@ module.exports.getMenu = (req, res, next)=>{
        const zipcode = req.query.zipcode;
        console.log(zipcode);
         menu.find({zipcode: zipcode}).then((result)=>{
+                console.log(result);
                 res.send(result);
                 // if there are no records in the result, then it means no services will be available for a given service
         }).catch( error=>{

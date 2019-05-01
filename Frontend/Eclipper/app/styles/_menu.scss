@@ -1,8 +1,9 @@
 .menu{
  .columns {
   float: left;
-  width: 33.3%;
+  width: 33.33%;
   padding: 8px;
+  height: auto;
 }
 
 .price {
@@ -36,12 +37,15 @@
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: #346da3;
   border: none;
   color: white;
-  padding: 10px 25px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   font-size: 18px;
 }
+
+
+
 }
