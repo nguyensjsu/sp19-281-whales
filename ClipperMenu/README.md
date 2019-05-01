@@ -20,3 +20,15 @@ The main functionality of menu service is to display the available services for 
 
 In our application we have used angular js for front end and is hosted in heroku. My microservice is hosted in AWS with node.js as backend and MongoDB for database. I have installed the backend server in public subnet and hosted a mongoDB cluster with replication set in private subnet to provide the Partion Tolerence and high availability for the application. I have also provided the elastic load balancer for backend server to handle more traffic. 
 
+# Steps to implement the Menu Microservice
+
+* Host a ubuntu instance in AWS and install Docker Client (Neglected load balancer step)
+* Create a MongoDB cluster with replication set in Ubuntu instances. 
+* Update the index.js file and provide proper mongoDB url with authentication parameters
+* Create docker container image for nodejs backend with the given docker file
+* push the code to docker hub.
+* in AWS ubuntu server, pull the image and run with proper port mapping.
+* Test with postman.
+
+Regards
+Manjunatha K F
