@@ -15,3 +15,8 @@ The main functionality of menu service is to display the available services for 
 > [
 ![ApplicationArchitecture](https://user-images.githubusercontent.com/33331778/56463504-8c2e6c00-638a-11e9-9b50-4614a79f9af5.png)
 ](url)
+
+# Architecture Overview of Menu Microservice
+
+In our application we have used angular js for front end and is hosted in heroku. My microservice is hosted in AWS with node.js as backend and MongoDB for database. I have installed the backend server in public subnet and hosted a mongoDB cluster with replication set in private subnet to provide the Partion Tolerence and high availability for the application. I have also provided the elastic load balancer for backend server to handle more traffic. 
+
