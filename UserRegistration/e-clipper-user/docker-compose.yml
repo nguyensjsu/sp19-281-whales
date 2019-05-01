@@ -1,0 +1,16 @@
+version: "1"
+services:
+  user:
+    image: greeshmavyas/users:latest
+    ports:
+      - 8000:8000
+    environment: 
+      - MONGO_DATABASE=e-clipper
+      - MONGO_COLLECTION=Users
+      - MONGO_ADMIN_DATABASE=admin
+      - MONGO_USERNAME=admin
+      - MONGO_PASS=*****
+
+volumes:
+  schemas:
+    external: false
