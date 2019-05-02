@@ -13,12 +13,12 @@
 <div class="menu" ng-controller="ServiceMenuCtrl as menu">
 <br>
 
-  <div class="row">
+   <div class="row">
     <div class="col-xs-6 col-md-4 col-md-offset-4 col-xs-offset-4">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Enter your zipcode here" id="txtSearch" ng-model="menu.text"/>
         <div class="input-group-btn">
-          <button class="btn btn-primary" ng-click="menu.find()">
+          <button class="btn btn-primary" ng-click="menu.find(menu.text)">
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </div>
