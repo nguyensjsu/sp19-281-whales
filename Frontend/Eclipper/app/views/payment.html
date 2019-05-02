@@ -32,37 +32,37 @@
       <h3 class="modal-title" id="modal-title">Add Funds</h3>
     </div>
     <div class="modal-body">
-      <div class='form-row' ng-if="afModal.payment.paymentMethods.length>0">
+      <div class='form-row' ng-if="afModal.payment.paymentMethods.length==0">
         <div class='col-xs-12'>
-          <div class="radio" ng-repeat="item in afModal.payment.paymentMethods">
-            <label><input type="radio" name="optradio" ng-checked="true">{{item.type}}</label>
+          <div class="radio" ng-repeat="item in afModal.types">
+            <label><input type="radio"  ng-model="afModal.checkedId" value="{{item.id}}">{{item.name}}</label>
           </div>
         </div>
       </div>
       <div class='form-row' ng-if="afModal.payment.paymentMethods.length==0">
         <div class='col-xs-12 form-group required'>
           <label class='control-label'>Name on Card</label>
-          <input class='form-control' size='4' type='text' ng-model="afModal.payment.paymentMethods.name">
+          <input class='form-control' size='4' type='text' ng-model="afModal.paymentMethod.name">
         </div>
       </div>
       <div class='form-row' ng-if="afModal.payment.paymentMethods.length==0">
         <div class='col-xs-12 form-group card required'>
           <label class='control-label'>Card Number</label>
-          <input ui-mask="9999 9999 9999 9999" class='form-control' size='20' type='text' ng-model="afModal.payment.paymentMethods.cardNumber">
+          <input ui-mask="9999 9999 9999 9999" class='form-control' size='20' type='text' ng-model="afModal.paymentMethod.cardNumber">
         </div>
       </div>
       <div class='form-row' ng-if="afModal.payment.paymentMethods.length==0">
         <div class='col-xs-4 form-group cvc required'>
           <label class='control-label'>CVV</label>
-          <input ui-mask="999" class='form-control' placeholder='cvv' size='4' type='text' ng-model="afModal.payment.paymentMethods.cvv">
+          <input ui-mask="999" class='form-control' placeholder='cvv' size='4' type='text' ng-model="afModal.paymentMethod.cvv">
         </div>
         <div class='col-xs-4 form-group expiration required' ng-if="afModal.payment.paymentMethods.length==0">
           <label class='control-label'>Expiration</label>
-          <input class='form-control'  ui-mask="99" placeholder='MM' size='2' type='text' ng-model="afModal.payment.paymentMethods.month">
+          <input class='form-control'  ui-mask="99" placeholder='MM' size='2' type='text' ng-model="afModal.paymentMethod.month">
         </div>
         <div class='col-xs-4 form-group expiration required' ng-if="afModal.payment.paymentMethods.length==0">
           <label class='control-label'> </label>
-          <input class='form-control' ui-mask="9999" placeholder='YYYY' size='4' type='text' ng-model="afModal.payment.paymentMethods.year">
+          <input class='form-control' ui-mask="9999" placeholder='YYYY' size='4' type='text' ng-model="afModal.paymentMethod.year">
         </div>
       </div>
       <div class='form-row'>
@@ -74,7 +74,7 @@
 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="afModal.ok()">OK</button>
+        <input type="submit" class="btn btn-primary"  ng-click="afModal.ok()">
         <button class="btn btn-warning" type="button" ng-click="afModal.cancel()">Cancel</button>
       </div>
     </script>
@@ -91,11 +91,10 @@
             </div>
           </div>
         </div>
-        <form role="form">
         <div class='form-row'>
           <div class='col-xs-12 form-group required'>
             <label class='control-label'>Name on Card</label>
-            <input class='form-control' size='4' type='text' ng-model="amModal.paymentMethod.name" required>
+            <input class="form-control" size='4' type='text' ng-model="amModal.paymentMethod.name" required>
           </div>
         </div>
         <div class='form-row'>
@@ -107,7 +106,7 @@
         <div class='form-row'>
           <div class='col-xs-4 form-group cvc required'>
             <label class='control-label'>CVC</label>
-            <input ui-mask="999" class='form-control card-cvc' placeholder='ex. 311' size='4' type='text' ng-model="amModal.paymentMethod.cvv" required>
+            <input ui-mask="999" class='form-control card-cvc' placeholder='cvv' size='4' type='text' ng-model="amModal.paymentMethod.cvv" required>
           </div>
           <div class='col-xs-4 form-group expiration required'>
             <label class='control-label'>Expiration</label>
@@ -124,5 +123,4 @@
           <input type="submit" class="btn btn-primary"  ng-click="amModal.ok()">
           <button class="btn btn-warning" type="button" ng-click="amModal.cancel()">Cancel</button>
         </div>
-        </form>
       </script>
