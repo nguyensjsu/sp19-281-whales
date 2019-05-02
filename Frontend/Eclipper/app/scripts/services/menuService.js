@@ -61,18 +61,14 @@ angular.module('eclipperApp')
 
     var deferred = $q.defer();
 
-    $http({
-      method: 'GET',
-      url: "http://ec2-52-12-4-247.us-west-2.compute.amazonaws.com:8080/getMenu?zipcode=95112"
-    }).then(function (response){
-      deferred.resolve(response);
-      console.log(response);
-      callback(response.data);
-      return;
-   },function (error){
-      deferred.reject(error);
-      return;
-   });
+		$http(request).then( function(response){
+		    		deferred.resolve(response);
+			  	}).catch(function(err){
+			  		deferred.reject(err);
+			  	});
+
+
+			  	return deferred.promise;
 
 
 
