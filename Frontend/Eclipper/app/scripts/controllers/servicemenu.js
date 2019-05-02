@@ -12,7 +12,7 @@ angular.module('eclipperApp')
   init();
   });*/
 
-  'use strict';
+/*  'use strict';
 
 angular.module('eclipperApp')
   .controller('ServiceMenuCtrl', function (menuService) {
@@ -29,6 +29,30 @@ angular.module('eclipperApp')
 			}, function (){
 				//TODO ERROR block
 			});
+  }
+  init();
+  });*/
+
+  
+  'use strict';
+
+angular.module('eclipperApp')
+  .controller('ServiceMenuCtrl', function (menuService) {
+    var self = this,
+        init = function () {
+          //self.menu = [];
+          //self.text ="95112";
+  }
+  self.find = function ( data) {
+    var zipcode = data;
+    console.log("submit");
+    menuService.getServiceMenu(zipcode).then(function (response){
+        self.menu = response.data;
+        //console.log(self.menu);
+      }, function (err){
+        //TODO ERROR block
+        console.log(err);
+      });
   }
   init();
   });
