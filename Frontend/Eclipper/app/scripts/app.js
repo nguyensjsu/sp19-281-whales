@@ -63,6 +63,30 @@ angular
              }
             }
          })
+        .state('login', {
+            url: 'login',
+            parent: 'main',
+            views: {
+               'header': {
+               templateUrl: 'views/header.html'
+             },
+              'content': {
+              templateUrl: 'views/login.html'
+             }
+            }
+         })
+        .state('signup', {
+            url: 'signup',
+            parent: 'main',
+            views: {
+               'header': {
+               templateUrl: 'views/header.html'
+             },
+              'content': {
+              templateUrl: 'views/signup.html'
+             }
+            }
+         })
          .state('services', {
              url: 'services',
              parent: 'main',
