@@ -33,13 +33,14 @@ angular.module('eclipperApp')
   init();
   });*/
 
-  
+
   'use strict';
 
 angular.module('eclipperApp')
-  .controller('ServiceMenuCtrl', function (menuService) {
+  .controller('ServiceMenuCtrl', function (menuService, paymentService, localStorageService, paymentModel) {
     var self = this,
         init = function () {
+            self.getPaymentAccount();
           //self.menu = [];
           //self.text ="95112";
   }
@@ -53,6 +54,27 @@ angular.module('eclipperApp')
         //TODO ERROR block
         console.log(err);
       });
+  }
+  self.placeOrder = function (item) {
+    console.log(item);
+    self.payment.balance = self.payment.balance - item.cost;
+    /*paymentService.payFare(self.payment).then(function(response){
+      console.log(self.payment);
+    },function(error){
+      self.payment.balance = self.payment.balance + item.cost;
+      console.log(error);
+    });*/
+  }
+  self.getPaymentAccount = function() {
+    var user = localStorageService.get("userData");
+    if(user != null || user!= ""){
+      paymentService.getPayment(user.clipperId).then(function(response){
+        console.log(response);
+        self.payment = angular.copy(paymentModel.payment);
+      },function(error){
+        console.log(error);
+      });
+    }
   }
   init();
   });
