@@ -11,7 +11,7 @@ module.exports.addMenu = (req, res, next)=>{
         const menutoInsert = new menu();
         menutoInsert.zipcode = 95112;
         menutoInsert.servicetype = 'VTA';
-        menutoInsert.cost = '20$';
+        menutoInsert.cost = '20';
         menutoInsert.location = 'San Jose';
 
         menutoInsert.save( 
