@@ -10,7 +10,7 @@
 
 
 <div>-->
-<div class="menu">
+<div class="menu" ng-controller="ServiceMenuCtrl as menu">
 <br>
 
   <div class="row">
@@ -18,7 +18,7 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Enter your zipcode here" id="txtSearch"/>
         <div class="input-group-btn">
-          <button class="btn btn-primary" type="submit">
+          <button class="btn btn-primary" type="menu.submit()" ng-click="">
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </div>
@@ -27,16 +27,18 @@
   </div>
 
 <br>
-<div ng-controller="ServiceMenuCtrl as menu">
+<div>
 <div class="columns"  ng-repeat="item in menu.menu">
   <ul class="price">
     <li class="header" style="background-color:#346da3">{{item.servicetype}}</li>
     <li class="grey">{{item.cost}}</li>
     <li>Location: {{item.location}}</li>
-    <li class="grey"><a href="" class="button">Order</a></li>
+    <li class="grey"><a href="" class="button" ng-click="">Order</a></li>
   </ul>
 </div>
 
 
 <div>
+</div>
+</div>
 </div>

@@ -18,17 +18,13 @@ angular.module('eclipperApp')
   .controller('ServiceMenuCtrl', function (menuService) {
     var self = this,
         init = function () {
+
+  }
+  self.sumbit = function () {
     menuService.getServiceMenu( (test)=>{
       self.menu = test;
       console.log('test:',self.menu);
     });
-
-  }
-  self.sumbit = function () {
-    //menuService.getServiceMenu( (test)=>{
-    //  self.menu = test;
-    //console.log('test:',self.menu);
-    //});
   }
   init();
   });
