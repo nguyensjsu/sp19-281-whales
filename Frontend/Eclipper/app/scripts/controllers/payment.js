@@ -1,14 +1,14 @@
 angular.module('eclipperApp')
-.controller('paymentCtrl', function ($uibModal,paymentModel,localStorageService, paymentService) {
+.controller('paymentCtrl', function ($uibModal,paymentModel,localStorageService, paymentService, $state) {
   var self = this,
   init = function () {
-    var user = localStorageService.get("userData");
+    self.user = "";
     self.payment = angular.copy(paymentModel.payment);
-    if(user != null || user!= ""){
-      self.payment.clipperId = user.clipperId;
+    if(self.user != null || self.user!= ""){
+      self.payment.clipperId = self.user.clipperId;
       paymentService.getPayment(self.payment.clipperId).then(function(response){
         console.log(response);
-        self.payment.balance = response.data.balance;
+        self.payment.balance = response.data.balance.toFixed(2);
         self.payment.paymentMethods = response.data.paymentMethods;
         console.log(self.payment);
       },function(error){
@@ -17,7 +17,9 @@ angular.module('eclipperApp')
     }
   }
   self.addFunds = function() {
-    item="";
+    if(self.user == null || self.user == ""){
+      self.popup("Please login first.");
+    }
     $uibModal.open({
       animation: true,
       templateUrl: 'addFunds.html',
@@ -42,14 +44,16 @@ angular.module('eclipperApp')
           }
       },function(error){
         console.log(error);
-        self.payment.balance = self.payment.balance - self.payment.funds;
+        self.payment.balance = self.payment.balance- self.payment.funds;
       });
     }, function (){
       //TODO ERROR block
     });
   }
   self.addMethods = function() {
-
+    if(self.user == null || self.user == ""){
+      self.popup("Please login first.");
+    }
     $uibModal.open({
       animation: true,
       templateUrl: 'paymentMethods.html',
@@ -76,6 +80,28 @@ angular.module('eclipperApp')
     });
   }
 
+  self.popup = function (message) {
+
+    $uibModal.open({
+      animation: true,
+      templateUrl: 'views/warning.html',
+      controller: 'WarningCtrl',
+      controllerAs: 'wModal',
+      windowClass: 'warning',
+      backdrop: true,
+      resolve: {
+        item: function () {
+          return message
+        }
+      }
+    }).result.then(function() {
+      if(message == "Please login first."){
+          $state.go("login");
+      }
+    }, function (){
+      //TODO ERROR block
+    });
+  }
 
 
 

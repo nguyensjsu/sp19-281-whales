@@ -6,6 +6,7 @@ import(
   "github.com/gorilla/mux"
   "io/ioutil"
   "github.com/asaskevich/govalidator"
+  "fmt"
 )
 
 type Controller struct {
@@ -137,3 +138,7 @@ func validateCard(pm PaymentMethod)bool{
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
+
+func (c *Controller) pingHandler(w http.ResponseWriter, req *http.Request) {
+  fmt.Fprintf(w,"PING!!!!")
+	}

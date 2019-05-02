@@ -17,6 +17,12 @@ var controller = &Controller{Repository: Repository{}}
 type Routes []Route
 
 var routes = Routes {
+  Route {
+    "pingHandler",
+    "GET",
+    configuration.Config().BaseUrl+"ping",
+    controller.pingHandler,
+  },
     Route {
       "InquireBalance",
       "GET",
