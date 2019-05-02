@@ -27,7 +27,5 @@ func port() string {
 
 func env() {
   configuration.Configs.ServerPort = os.Getenv("PORT")
-  configuration.Configs.Server1 = os.Getenv("server1")
-  configuration.Configs.Server2 = os.Getenv("server2")
-  configuration.Configs.Server3 = os.Getenv("server3")
+  configuration.Configs.DBServer = os.Getenv("DBserver")
 }

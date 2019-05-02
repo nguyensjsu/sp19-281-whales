@@ -7,9 +7,7 @@ import(
 type Configuration struct {
   ServerPort string
   BaseUrl string
-  Server1 string
-  Server2 string
-  Server3 string
+  DBServer string
   DBUrl string
   DBUser string
   DBPwd string

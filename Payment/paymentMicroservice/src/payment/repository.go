@@ -70,14 +70,10 @@ func (r Repository) updateAccount(data PaymentAccount){
 
 func  getSession() *mgo.Collection{
   var url string
-  if configuration.Configs.Server1 == "" {
+  if configuration.Configs.DBServer == "" {
     url = configuration.Config().DBUrl
   } else{
-    url = "mongodb://" + configuration.Config().DBUser + ":" + configuration.Config().DBPwd
-    url = url + "@" + configuration.Configs.Server1 + "," + configuration.Configs.Server2
-    url = url + "," + configuration.Configs.Server3 + "/" + configuration.Config().DBName + "?replicaSet="
-    url = url + configuration.Config().ReplicaSet + "&readPreference=" + configuration.Config().ReadPreference
-    url = url + "&authSource="+configuration.Config().AuthSource
+    url = configuration.Configs.DBServer
   }
   log.Println(url)
   session, err := mgo.Dial(url)
