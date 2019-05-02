@@ -1,13 +1,20 @@
 angular.module('eclipperApp')
-.controller('paymentCtrl', function ($uibModal,paymentModel,localStorageService) {
+.controller('paymentCtrl', function ($uibModal,paymentModel,localStorageService, paymentService) {
   var self = this,
   init = function () {
     var user = localStorageService.get("userData");
     self.payment = angular.copy(paymentModel.payment);
     if(user != null){
       self.payment.clipperId = user.clipperId;
+      paymentService.getPayment(self.payment.clipperId).then(function(response){
+        console.log(response);
+        self.payment.balance = response.data.balance;
+        self.payment.paymentMethods = response.data.paymentMethods;
+        console.log(self.payment);
+      },function(error){
+        console.log(error);
+      });
     }
-    console.log(self.payment)
   }
   self.addFunds = function() {
     item="";
@@ -24,9 +31,19 @@ angular.module('eclipperApp')
         }
       }
     }).result.then(function(pm) {
-      console.log(pm);
       self.payment = pm;
-      console.log(self.payment);
+
+      self.payment.balance = self.payment.balance + self.payment.funds;
+      paymentService.addFunds(self.payment).then(function(response){
+          if(response.statusText == "OK"){
+            self.payment.funds = parseFloat("0.00");
+          }else{
+            self.payment.balance = self.payment.balance - self.payment.funds;
+          }
+      },function(error){
+        console.log(error);
+        self.payment.balance = self.payment.balance - self.payment.funds;
+      });
     }, function (){
       //TODO ERROR block
     });
@@ -39,10 +56,20 @@ angular.module('eclipperApp')
       controller: 'addMethodsCtrl',
       controllerAs: 'amModal',
       windowClass: 'addFunds',
-      backdrop: false
+      backdrop: false,
+      resolve: {
+        item: function () {
+          return self.payment.paymentMethods;
+        }
+      }
     }).result.then(function(pm) {
       console.log(self.payment);
       self.payment.paymentMethods.push(pm);
+      paymentService.addPaymentMethod(self.payment).then(function(response){
+          console.log(response);
+      },function(error){
+        console.log(error);
+      });
 
     }, function (){
       //TODO ERROR block
@@ -68,6 +95,7 @@ angular.module('eclipperApp')
   }
   self.ok = function () {
     if(self.paymentMethod != null){
+      self.paymentMethod.pid = self.payment.paymentMethods.length+1+"";
       var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedId);
       self.paymentMethod.type = self.types[index].name;
       self.payment.paymentMethods.push(self.paymentMethod);
@@ -85,15 +113,18 @@ angular.module('eclipperApp')
 
   init();
 })
-.controller('addMethodsCtrl', function ($uibModalInstance, paymentModel) {
+.controller('addMethodsCtrl', function ($uibModalInstance, paymentModel, item) {
 
   var self = this,
   init = function () {
+    self.item = item;
+    console.log(self.item);
     self.paymentMethod = angular.copy(paymentModel.paymentMethod);
     self.types = self.getTypes();
     self.checkedType = "1";
   }
   self.ok = function () {
+    self.paymentMethod.pid = self.item.length+1+"";
     for(var i=0;i<self.types.length;i++){
       if(self.types[i].id == self.checkedType){
         self.paymentMethod.type = self.types[i].name;
@@ -101,9 +132,6 @@ angular.module('eclipperApp')
     }
     $uibModalInstance.close(self.paymentMethod);
   };
-  self.radioCheck = function() {
-    console.log(self.types);
-  }
 
   self.cancel = function () {
     $uibModalInstance.dismiss('cancel');

@@ -14,6 +14,7 @@ type Controller struct {
 var account PaymentAccount
 // GET all accounts
 func (c *Controller) GetAllAccounts(w http.ResponseWriter, r *http.Request){
+  enableCors(&w)
   accounts := c.Repository.GetAllAccounts()
   data,err:= json.Marshal(accounts)
   if err!=nil {
@@ -25,6 +26,7 @@ func (c *Controller) GetAllAccounts(w http.ResponseWriter, r *http.Request){
 }
 // GET - inquire payment details of a user
 func (c *Controller) InquireBalance(w http.ResponseWriter, r *http.Request){
+  enableCors(&w)
   vars := mux.Vars(r)
   account := c.Repository.GetAccount(vars["id"])
   data,err:= json.Marshal(account)
@@ -38,6 +40,7 @@ func (c *Controller) InquireBalance(w http.ResponseWriter, r *http.Request){
 
 //POST - create a new payment account for a user
 func (c *Controller) CreateAccount(w http.ResponseWriter, r *http.Request){
+  enableCors(&w)
   body,err := ioutil.ReadAll(r.Body)
   if err != nil {
     panic(err)
@@ -54,6 +57,7 @@ func (c *Controller) CreateAccount(w http.ResponseWriter, r *http.Request){
 //POST - Add funds to the account
 
 func (c *Controller) AddFunds(w http.ResponseWriter, r *http.Request){
+  enableCors(&w)
   body,err := ioutil.ReadAll(r.Body)
   if err != nil {
     panic(err)
@@ -74,6 +78,7 @@ func (c *Controller) AddFunds(w http.ResponseWriter, r *http.Request){
 
 //POST - pay the amount of fare from current balance
 func (c *Controller) PayFare(w http.ResponseWriter, r *http.Request){
+  enableCors(&w)
   body,err := ioutil.ReadAll(r.Body)
   if err != nil {
     panic(err)
@@ -91,6 +96,7 @@ func (c *Controller) PayFare(w http.ResponseWriter, r *http.Request){
 }
 
 func (c *Controller) ValidateCard(w http.ResponseWriter, r *http.Request) {
+  enableCors(&w)
   body,err := ioutil.ReadAll(r.Body)
   if err != nil {
     panic(err)
@@ -102,13 +108,14 @@ func (c *Controller) ValidateCard(w http.ResponseWriter, r *http.Request) {
       panic(err)
       w.WriteHeader(http.StatusBadRequest)
     }
-    validCreditCard := govalidator.IsCreditCard(paymentMethod.Number)
+    validCreditCard := govalidator.IsCreditCard(paymentMethod.CardNumber)
     w.WriteHeader(http.StatusOK)
     data,_ := json.Marshal(validCreditCard)
     w.Write(data)
 }
 
 func (c *Controller) updateAccount(w http.ResponseWriter, r *http.Request){
+  enableCors(&w)
   body,err := ioutil.ReadAll(r.Body)
   if err != nil {
     panic(err)
@@ -123,6 +130,10 @@ func (c *Controller) updateAccount(w http.ResponseWriter, r *http.Request){
 }
 
 func validateCard(pm PaymentMethod)bool{
-  validCreditCard := govalidator.IsCreditCard(pm.Number)
+  validCreditCard := govalidator.IsCreditCard(pm.CardNumber)
   return validCreditCard
+}
+
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }

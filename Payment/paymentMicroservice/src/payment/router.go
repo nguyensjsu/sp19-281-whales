@@ -58,7 +58,7 @@ var routes = Routes {
       "POST",
       configuration.Config().BaseUrl+"paymentMethod",
       controller.updateAccount,
-    }
+    },
 }
 
 func NewRouter() *mux.Router {

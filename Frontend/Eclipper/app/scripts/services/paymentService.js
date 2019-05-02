@@ -1,19 +1,37 @@
 "use strict";
 
 angular.module('eclipperApp')
-	.factory('paymentService', function ($http, $q, configurations) {
+	.factory('paymentService', function ($http, $q, configurations, paymentModel) {
 
 		var paymentServiceFactory = {};
+    var _createPaymentAccount = function(clipperId){
+      var data = paymentModel.payment;
+      data.clipperId = clipperId;
+      var deferred = $q.defer();
+      var request = {
+        method: 'POST',
+        url: configurations.paymentUrl + configurations.paymentServiceBase + '/addaccount',
+        data: JSON.stringify(data),
+        headers: { 'Content-Type': configurations.contentType, 'Accept': configurations.acceptType }
+      };
+
+        $http(request).then( function(response){
+          deferred.resolve(response);
+        }).catch(function(err){
+          deferred.reject(err);
+        });
+      return deferred.promise;
+    }
 		var _getPayment = function(clipperId){
 			var deferred = $q.defer();
 			var request = {
 				method: 'GET',
-				url: configurations.paymentUrl + configurations.paymentServiceBase + '/inquirebalance/'+clipperId
+				url: configurations.paymentUrl + configurations.paymentServiceBase + '/'+clipperId
 			};
 
-	    	$http(request).success( function(response){
+	    	$http(request).then( function(response){
 	    		deferred.resolve(response);
-		  	}).error(function(err){
+		  	}).catch(function(err){
 		  		deferred.reject(err);
 		  	});
 
@@ -22,32 +40,35 @@ angular.module('eclipperApp')
 		};
 
 
-		var _addFunds = function () {
+		var _addFunds = function (data) {
 			var deferred = $q.defer();
 			var request = {
 				method: 'POST',
-				url: configurations.paymentUrl + configurations.paymentServiceBase + '/',
-				data: JSON.stringify(data)
+				url: configurations.paymentUrl + configurations.paymentServiceBase + '/addfunds',
+				data: JSON.stringify(data),
+        headers: { 'Content-Type': configurations.contentType, 'Accept': configurations.acceptType }
 			};
 
-	    	$http(request).success( function(response){
+	    	$http(request).then( function(response){
 	    		deferred.resolve(response);
-		  	}).error(function(err){
+		  	}).catch(function(err){
 		  		deferred.reject(err);
 		  	});
 			return deferred.promise;
 		};
 
-		var _payFare = function () {
+		var _payFare = function (data) {
 			var deferred = $q.defer();
-			var request = {
-				method: 'POST',
-				url: configurations.paymentUrl + configurations.paymentServiceBase + '/',
-			};
+      var request = {
+        method: 'POST',
+        url: configurations.paymentUrl + configurations.paymentServiceBase + '/payfare',
+        data: JSON.stringify(data),
+        headers: { 'Content-Type': configurations.contentType, 'Accept': configurations.acceptType }
+      };
 
-	    	$http(request).success( function(response){
+	    	$http(request).then( function(response){
 	    		deferred.resolve(response);
-		  	}).error(function(err){
+		  	}).catch(function(err){
 		  		deferred.reject(err);
 		  	});
 			return deferred.promise;
@@ -59,20 +80,37 @@ angular.module('eclipperApp')
         url: configurations.paymentUrl + configurations.paymentServiceBase + '/'+clipperId,
       };
 
-        $http(request).success( function(response){
+        $http(request).then( function(response){
           deferred.resolve(response);
-        }).error(function(err){
+        }).catch(function(err){
           deferred.reject(err);
         });
       return deferred.promise;
     };
 
+    var _addPaymentMethod = function (data) {
+      var deferred = $q.defer();
+      var request = {
+        method: 'POST',
+        url: configurations.paymentUrl + configurations.paymentServiceBase + '/paymentMethod',
+        data: JSON.stringify(data),
+        headers: { 'Content-Type': configurations.contentType, 'Accept': configurations.acceptType }
+      };
 
+        $http(request).then( function(response){
+          deferred.resolve(response);
+        }).catch(function(err){
+          deferred.reject(err);
+        });
+      return deferred.promise;
+    };
 
 		paymentServiceFactory.getPayment = _getPayment;
+    paymentServiceFactory.createPaymentAccount = _createPaymentAccount;
 		paymentServiceFactory.addFunds = _addFunds;
 		paymentServiceFactory.payFare = _payFare;
 		paymentServiceFactory.deletePayment = _deletePayment;
+    paymentServiceFactory.addPaymentMethod = _addPaymentMethod;
 
 		return paymentServiceFactory;
   })

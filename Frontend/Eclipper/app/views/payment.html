@@ -39,6 +39,17 @@
           </div>
         </div>
       </div>
+      <div class='form-row' ng-if="afModal.payment.paymentMethods.length>0">
+        <div class='col-xs-12' ng-repeat="item in afModal.payment.paymentMethods">
+          <div class="radio col-xs-6" >
+            <label><input type="radio"  ng-model="afModal.checkedId" value="{{item.pid}}">{{item.type}}</label>
+          </div>
+          <div class='col-xs-6' style="margin-top: 10px;">
+            {{item.cardNumber}}
+            </div>
+        </div>
+
+      </div>
       <div class='form-row' ng-if="afModal.payment.paymentMethods.length==0">
         <div class='col-xs-12 form-group required'>
           <label class='control-label'>Name on Card</label>
@@ -68,7 +79,7 @@
       <div class='form-row'>
         <div class='col-xs-12 form-group card required'>
           <label class='control-label'>Amount</label>
-          <input autocomplete='off' class='form-control amount' ng-model="afModal.payment.funds" size='20' type='text'>
+          <input autocomplete='off' class='form-control amount' ng-model="afModal.payment.funds" size='20' type='number'>
         </div>
       </div>
 

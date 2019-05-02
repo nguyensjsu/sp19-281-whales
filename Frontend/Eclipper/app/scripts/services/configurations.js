@@ -3,8 +3,8 @@
 
 angular.module('eclipperApp')
  .constant('configurations',{
-   'paymentUrl':'http://localhost:3000'
-	'paymentServiceBase': '/eclipper',
+  'paymentUrl':'http://localhost:8000',
+	'paymentServiceBase': '/clipperpayments',
 	'contentType':'application/x-www-form-urlencoded',
 	'acceptType':'application/json'
   });
