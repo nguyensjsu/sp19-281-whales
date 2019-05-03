@@ -90,7 +90,7 @@ angular.module('eclipperApp')
         var menu = {};
         var _getServiceMenu = function ( data ) {
           console.log(data);
-          var urlofMenu = 'http://ec2-52-12-4-247.us-west-2.compute.amazonaws.com:8080/getMenu?zipcode='+data;
+          var urlofMenu = 'http://clippermenu-1390786865.us-west-2.elb.amazonaws.com:8080/getMenu?zipcode='+data;
                 var request = {
                         method: 'GET',
                         url: urlofMenu
