@@ -5,9 +5,9 @@ angular.module('eclipperApp')
     var paymentModelFactory = {};
 			var payment= {
 				  clipperId:"",
-          balance:parseFloat("0.00"),
-          funds: parseFloat("0.00"),
-          fare:parseFloat("0.00"),
+          balance:parseFloat("0.00").toFixed(2),
+          funds: parseFloat("0.00").toFixed(2),
+          fare:parseFloat("0.00").toFixed(2),
           paymentMethods:[]
 			};
       var paymentMethod = {
@@ -17,7 +17,9 @@ angular.module('eclipperApp')
         month:"",
         year:"",
         type:"",
-        cvv:""
+        cvv:"",
+				maskCard:""
+
       }
       paymentModelFactory.payment = payment;
       paymentModelFactory.paymentMethod = paymentMethod;

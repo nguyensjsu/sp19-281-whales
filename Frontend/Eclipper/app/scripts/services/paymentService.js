@@ -41,6 +41,7 @@ angular.module('eclipperApp')
 
 
 		var _addFunds = function (data) {
+			data.balance = parseFloat(data.balance)
 			var deferred = $q.defer();
 			var request = {
 				method: 'POST',
@@ -51,6 +52,7 @@ angular.module('eclipperApp')
 
 	    	$http(request).then( function(response){
 	    		deferred.resolve(response);
+          console.log(response);
 		  	}).catch(function(err){
 		  		deferred.reject(err);
 		  	});
@@ -58,6 +60,7 @@ angular.module('eclipperApp')
 		};
 
 		var _payFare = function (data) {
+			data.balance = parseFloat(data.balance)
 			var deferred = $q.defer();
       var request = {
         method: 'POST',
@@ -68,6 +71,7 @@ angular.module('eclipperApp')
 
 	    	$http(request).then( function(response){
 	    		deferred.resolve(response);
+          console.log(response);
 		  	}).catch(function(err){
 		  		deferred.reject(err);
 		  	});
@@ -89,6 +93,7 @@ angular.module('eclipperApp')
     };
 
     var _addPaymentMethod = function (data) {
+			data.balance = parseFloat(data.balance)
       var deferred = $q.defer();
       var request = {
         method: 'POST',

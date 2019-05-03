@@ -2,15 +2,21 @@ angular.module('eclipperApp')
 .controller('paymentCtrl', function ($uibModal,paymentModel,localStorageService, paymentService, $state) {
   var self = this,
   init = function () {
-    self.user = "";
+    self.user = localStorageService.get("userData");
     self.payment = angular.copy(paymentModel.payment);
     if(self.user != null || self.user!= ""){
       self.payment.clipperId = self.user.clipperId;
       paymentService.getPayment(self.payment.clipperId).then(function(response){
         console.log(response);
         self.payment.balance = response.data.balance.toFixed(2);
-        self.payment.paymentMethods = response.data.paymentMethods;
-        console.log(self.payment);
+        if(!self.isEmpty(response.data.paymentMethods)){
+          self.payment.paymentMethods = response.data.paymentMethods;
+          for(var i=0;i<self.payment.paymentMethods.length;i++){
+            self.payment.paymentMethods[i].pid = i+1;
+            self.payment.paymentMethods[i].maskCard = self.payment.paymentMethods[i].cardNumber.replace(/\d(?=\d{4})/g, "*");
+          }
+          console.log(self.payment);
+        }
       },function(error){
         console.log(error);
       });
@@ -35,16 +41,17 @@ angular.module('eclipperApp')
     }).result.then(function(pm) {
       self.payment = pm;
 
-      self.payment.balance = self.payment.balance + self.payment.funds;
+      self.payment.balance = parseFloat(self.payment.balance) + parseFloat(self.payment.funds);
+      /* SERVICE CALL ADD FUNDS */
       paymentService.addFunds(self.payment).then(function(response){
-          if(response.statusText == "OK"){
-            self.payment.funds = parseFloat("0.00");
-          }else{
-            self.payment.balance = self.payment.balance - self.payment.funds;
-          }
+        if(response.statusText == "OK"){
+          self.payment.funds = parseFloat("0.00");
+        }else{
+          self.payment.balance = parseFloat(self.payment.balance) - parseFloat(self.payment.funds);
+        }
       },function(error){
         console.log(error);
-        self.payment.balance = self.payment.balance- self.payment.funds;
+        self.payment.balance = parseFloat(self.payment.balance)- parseFloat(self.payment.funds);
       });
     }, function (){
       //TODO ERROR block
@@ -67,10 +74,12 @@ angular.module('eclipperApp')
         }
       }
     }).result.then(function(pm) {
-      console.log(self.payment);
+
+      console.log(pm);
       self.payment.paymentMethods.push(pm);
+      self.payment.balance = parseFloat(self.payment.balance);
       paymentService.addPaymentMethod(self.payment).then(function(response){
-          console.log(response);
+        console.log(response);
       },function(error){
         console.log(error);
       });
@@ -96,14 +105,20 @@ angular.module('eclipperApp')
       }
     }).result.then(function() {
       if(message == "Please login first."){
-          $state.go("login");
+        $state.go("login");
       }
     }, function (){
       //TODO ERROR block
     });
   }
 
-
+  self.isEmpty = function(obj) {
+    if(obj == null)
+    return true;
+    else if (obj.length == 0)
+    return true;
+    return false;
+  }
 
   init();
 })
@@ -111,15 +126,17 @@ angular.module('eclipperApp')
 
   var self = this,
   init = function () {
+    self.error = false;
     self.payment = item;
     self.paymentMethod = null;
-    if(!(self.payment.paymentMethods.length>0)){
-      self.checkedId = "1";
-      self.types = self.getTypes();
+    self.checkedId = "1";
+    self.types = self.getTypes();
+    if(self.isEmpty(self.payment.paymentMethods)){
       self.paymentMethod = angular.copy(paymentModel.paymentMethod)
     }
   }
   self.ok = function () {
+    if(parseFloat(self.payment.funds)>0){
     if(self.paymentMethod != null){
       self.paymentMethod.pid = self.payment.paymentMethods.length+1+"";
       var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedId);
@@ -127,6 +144,9 @@ angular.module('eclipperApp')
       self.payment.paymentMethods.push(self.paymentMethod);
     }
     $uibModalInstance.close(self.payment);
+  }else {
+    self.error = true;
+  }
   };
 
   self.cancel = function () {
@@ -134,7 +154,14 @@ angular.module('eclipperApp')
   };
 
   self.getTypes = function () {
-    return [{"id":"1","name":"Visa"},{"id":"2","name":"Debit"}]
+    return [{"id":"1","name":"Credit"},{"id":"2","name":"Debit"}]
+  }
+  self.isEmpty = function(obj) {
+    if(obj == null)
+    return true;
+    else if (obj.length == 0)
+    return true;
+    return false;
   }
 
   init();
@@ -144,26 +171,44 @@ angular.module('eclipperApp')
   var self = this,
   init = function () {
     self.item = item;
+    self.error= false;
     console.log(self.item);
     self.paymentMethod = angular.copy(paymentModel.paymentMethod);
     self.types = self.getTypes();
     self.checkedType = "1";
   }
   self.ok = function () {
-    self.paymentMethod.pid = self.item.length+1+"";
-    for(var i=0;i<self.types.length;i++){
-      if(self.types[i].id == self.checkedType){
-        self.paymentMethod.type = self.types[i].name;
-      }
+    if(!self.checkValidation()){
+      self.error = false;
+      self.paymentMethod.pid = self.item.length+1+"";
+      var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedType);
+      self.paymentMethod.type = self.types[index].name;
+      $uibModalInstance.close(self.paymentMethod);
+    }else{
+      self.error=true;
     }
-    $uibModalInstance.close(self.paymentMethod);
   };
 
   self.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
   self.getTypes = function () {
-    return [{"id":"1","name":"Visa"},{"id":"2","name":"Debit"}]
+    return [{"id":"1","name":"Credit"},{"id":"2","name":"Debit"}]
+  }
+
+  self.checkValidation = function (){
+    if(self.isEmpty(self.paymentMethod.name) || self.isEmpty(self.paymentMethod.cardNumber) || self.isEmpty(self.paymentMethod.month)
+    || self.isEmpty(self.paymentMethod.year) || self.isEmpty(self.paymentMethod.cvv)){
+      return true;
+    }
+    return false;
+  }
+  self.isEmpty = function(obj) {
+    if(obj == null)
+    return true;
+    else if (obj.length == 0)
+    return true;
+    return false;
   }
   init();
 });

@@ -15,11 +15,10 @@
      transition: border .2s ease-in-out;
      padding-left: 0px;
      padding-right: 0px;
-     height: 30vh;
+     height: 35vh;
  }
  .balance{
    margin-top: 5vh;
-   margin-bottom:10vh;
  }
 
 
@@ -33,4 +32,11 @@
     margin-bottom:5vh;
   }
 }
+@media screen and (max-width:480px) {
+  .thumbnail {
+    height: 30vh;
+  }
+}
+
+
 }
