@@ -3,8 +3,9 @@ angular.module('eclipperApp')
   var self = this,
   init = function () {
     self.user = localStorageService.get("userData");
+    self.user = null;
     self.payment = angular.copy(paymentModel.payment);
-    if(self.user != null || self.user!= ""){
+    if(!self.isEmpty(self.user)){
       self.payment.clipperId = self.user.clipperId;
       paymentService.getPayment(self.payment.clipperId).then(function(response){
         console.log(response);
@@ -23,39 +24,41 @@ angular.module('eclipperApp')
     }
   }
   self.addFunds = function() {
-    if(self.user == null || self.user == ""){
+    if(self.isEmpty(self.user)){
       self.popup("Please login first.");
-    }
-    $uibModal.open({
-      animation: true,
-      templateUrl: 'addFunds.html',
-      controller: 'addFundsCtrl',
-      controllerAs: 'afModal',
-      windowClass: 'addFunds',
-      backdrop: false,
-      resolve: {
-        item: function () {
-          return self.payment;
+    } else{
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'addFunds.html',
+        controller: 'addFundsCtrl',
+        controllerAs: 'afModal',
+        windowClass: 'addFunds',
+        backdrop: false,
+        resolve: {
+          item: function () {
+            return self.payment;
+          }
         }
-      }
-    }).result.then(function(pm) {
-      self.payment = pm;
+      }).result.then(function(pm) {
+        self.payment = pm;
 
-      self.payment.balance = parseFloat(self.payment.balance) + parseFloat(self.payment.funds);
-      /* SERVICE CALL ADD FUNDS */
-      paymentService.addFunds(self.payment).then(function(response){
-        if(response.statusText == "OK"){
-          self.payment.funds = parseFloat("0.00");
-        }else{
-          self.payment.balance = parseFloat(self.payment.balance) - parseFloat(self.payment.funds);
-        }
-      },function(error){
-        console.log(error);
-        self.payment.balance = parseFloat(self.payment.balance)- parseFloat(self.payment.funds);
+        self.payment.balance = parseFloat(self.payment.balance) + parseFloat(self.payment.funds);
+        /* SERVICE CALL ADD FUNDS */
+        paymentService.addFunds(self.payment).then(function(response){
+          if(response.statusText == "OK"){
+            self.payment.funds = parseFloat("0.00");
+          }else{
+            self.payment.balance = parseFloat(self.payment.balance) - parseFloat(self.payment.funds);
+          }
+        },function(error){
+          console.log(error);
+          self.payment.balance = parseFloat(self.payment.balance)- parseFloat(self.payment.funds);
+        });
+      }, function (){
+        //TODO ERROR block
+        console.log("cancel");
       });
-    }, function (){
-      //TODO ERROR block
-    });
+    }
   }
   self.addMethods = function() {
     if(self.user == null || self.user == ""){
@@ -137,16 +140,16 @@ angular.module('eclipperApp')
   }
   self.ok = function () {
     if(parseFloat(self.payment.funds)>0){
-    if(self.paymentMethod != null){
-      self.paymentMethod.pid = self.payment.paymentMethods.length+1+"";
-      var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedId);
-      self.paymentMethod.type = self.types[index].name;
-      self.payment.paymentMethods.push(self.paymentMethod);
+      if(self.paymentMethod != null){
+        self.paymentMethod.pid = self.payment.paymentMethods.length+1+"";
+        var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedId);
+        self.paymentMethod.type = self.types[index].name;
+        self.payment.paymentMethods.push(self.paymentMethod);
+      }
+      $uibModalInstance.close(self.payment);
+    }else {
+      self.error = true;
     }
-    $uibModalInstance.close(self.payment);
-  }else {
-    self.error = true;
-  }
   };
 
   self.cancel = function () {
