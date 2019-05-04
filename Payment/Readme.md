@@ -19,7 +19,7 @@
 ### Create Service
 ![alt text](https://github.com/nguyensjsu/sp19-281-whales/blob/master/Payment/screenshots/createService.png)
 ![alt text](https://github.com/nguyensjsu/sp19-281-whales/blob/master/Payment/screenshots/createService2.png)
-![alt text](https://github.com/nguyensjsu/sp19-281-whales/blob/master/Payment/screenshots/createService3.png)
+![alt text](https://github.com/nguyensjsu/sp19-281-whales/blob/master/Payment/screenshots/createservice3.png)
 
 
 ![alt text](https://github.com/nguyensjsu/sp19-281-whales/blob/master/Payment/screenshots/final.png)
