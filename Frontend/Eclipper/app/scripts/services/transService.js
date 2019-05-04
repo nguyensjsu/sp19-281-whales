@@ -25,13 +25,13 @@ angular.module('eclipperApp')
 			  	return deferred.promise;
 	};
 	
-	var _addTrans = function () {
+	var _addTrans = function (data) {
 		var deferred = $q.defer();
 		var request = {
 			method: 'POST',
 			url: 'http://ec2-34-216-121-186.us-west-2.compute.amazonaws.com:8000/transactions/transactions',
-			data: { "ClipperId" : "123", "ServiceId" : "VTA", "Price" : 2.5, "Date" : "3 May 2019"
-			}
+			data: JSON.stringify(data)
+			//data: { "ClipperId" : "123", "ServiceId" : "VTA", "Price" : 2.5, "Date" : "3 May 2019"
 		};
 
 		console.log("Sending POST request");

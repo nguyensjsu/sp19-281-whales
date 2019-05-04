@@ -37,7 +37,7 @@ init();
 'use strict';
 
 angular.module('eclipperApp')
-.controller('ServiceMenuCtrl', function (menuService, paymentService, localStorageService, paymentModel, $uibModal, $state) {
+.controller('ServiceMenuCtrl', function (menuService, paymentService, localStorageService, paymentModel, $uibModal, $state, transService) {
   var self = this,
   init = function () {
     self.getPaymentAccount();
@@ -63,7 +63,18 @@ angular.module('eclipperApp')
       }else{
         self.payment.balance = self.payment.balance.toFixed(2) - parseFloat(item.cost).toFixed(2);
         paymentService.payFare(self.payment).then(function(response){
+
+          var transaction = {
+            ClipperId : user.clipperId,
+            ServiceId : item.servicetype,
+            Price : item.cost,
+            Date: new Date()
+        };
+
+        console.log(transaction);
+
           self.popup("Service ordered.");
+          transService.addTransaction(transaction);  // UserId, ServiceId, Price, Date
         },function(error){
           self.payment.balance = self.payment.balance.toFixed(2) + parseFloat(item.cost).toFixed(2);
           console.log(error);
