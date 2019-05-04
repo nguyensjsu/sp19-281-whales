@@ -11,7 +11,10 @@
  * [Saliha Mehboob](https://github.com/salihasjsu) - Payment
  
  ### Link to the application
- Application: https://eclipper-cmpe281.herokuapp.com/#!/home
+ https://eclipper-cmpe281.herokuapp.com/#!/home
+ 
+ ### Project Presentation
+ https://docs.google.com/presentation/d/1LdSi3KjYjM4I2fLLjZgjWd_RIX2wu2dHI6qJO6O0C5o/edit?usp=sharing
  
  ### Application Overview
  
