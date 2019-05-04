@@ -111,6 +111,18 @@ angular
                }
               }
            })
+           .state('transactions', {
+              url: 'transactions',
+              parent: 'main',
+              views: {
+                 'header': {
+                 templateUrl: 'views/header.html'
+               },
+                'content': {
+                templateUrl: 'views/transactions.html'
+               }
+              }
+           })
       $urlRouterProvider.otherwise('/home');
       localStorageServiceProvider.setStorageType('localStorage');
 
