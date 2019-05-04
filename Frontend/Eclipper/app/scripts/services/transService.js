@@ -1,17 +1,18 @@
 'use strict';
 
 angular.module('eclipperApp')
-.factory('transService', function ($q, $http, configurations) {
+.factory('transService', function ($q, $http, configurations, localStorageService) {
 	var transFactoryService = {};
   var trans = {};
+  var user = localStorageService.get("userData");
   var _getTransHistory = function ( callback ) {
     var request = {
 			method: 'GET',
-			url: 'http://ec2-34-216-121-186.us-west-2.compute.amazonaws.com:8000/transactions/transactions'
+			url: 'http://ec2-34-216-121-186.us-west-2.compute.amazonaws.com:8000/transactions/transactions',
 			//url: configurations.transUrl + configurations.transServiceBase
-												//data: {
-												//	"UserId" : "prkarve"
-												//}
+			data: {
+				"UserId" : user.clipperId
+			}
     };
 
 		console.log("Sending GET request")
