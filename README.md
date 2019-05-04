@@ -35,7 +35,8 @@ Trans History maintains an always-accesible log of services bought by the user.
 Designed and developed the TransactionsHistory microservice. GoContainerized the microservice and deployed it to multiple docker hosts in AWS. Deployed a MongoDB replica set as the datastore for this service. Deployed Kong API Gateway and load-balancer to handle traffic. Developed a front-end module for the microservice to add new transactions and retrieve them for a user.
 
 **Paymemnt**
-After the use logged in, a user can check his current balance by going to Payment tab of the application. The user can add recharge his account by adding funds to his account. He can also provide payment methods to be used for recharging account. Moreover, a user can order any service by going to the At Your location? tab, there a user can select a service and can order it. The payment module is implemented in GOLang and is hosted on AWS sing aws Elastic Container Service. The Application load balancer is handling the request to the containers. The database of payment module supports Sharding and contains a query router, 3 config servers and 2 shard replica.
+Payment Module allows user to recharge account and order any trasnport service.
+After the use logged in, a user can check his current balance by going to Payment tab of the application. The user can recharge his account by adding funds to his account. He can also provide payment methods to be used for recharging account. Moreover, a user can order any service by going to the At Your location? tab, there a user can select a service and can order it. The payment module is implemented in GOLang and is hosted on AWS sing aws Elastic Container Service. The Application load balancer is handling the request to the containers. The database of payment module supports Sharding and contains a query router, 3 config servers and 2 shard replica.
 
 
 ### Architecture
