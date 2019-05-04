@@ -29,6 +29,7 @@ The plan is to eventually implement a couple of the following:
 1. grpc / Protobuf for marshalling instead of JSON
 2. Autodeployment using Jenkins
 3. VPC peering
+4. Using ECS to deploy the containers
 
 #### Day 1 
 **Minutes of Meeting on 04/10/2019**
