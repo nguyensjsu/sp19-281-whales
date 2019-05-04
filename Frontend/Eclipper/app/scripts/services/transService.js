@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eclipperApp')
-.factory('transService', function ($q, $http) {
+.factory('transService', function ($q, $http, configurations) {
 	var transFactoryService = {};
   var trans = {};
   var _getTransHistory = function ( callback ) {
@@ -24,13 +24,14 @@ angular.module('eclipperApp')
 			  	});
 			  	return deferred.promise;
 	};
-	
+
 	var _addTrans = function (data) {
 		var deferred = $q.defer();
 		var request = {
 			method: 'POST',
 			url: 'http://ec2-34-216-121-186.us-west-2.compute.amazonaws.com:8000/transactions/transactions',
-			data: JSON.stringify(data)
+			data: JSON.stringify(data),
+			headers: { 'Content-Type': configurations.contentType, 'Accept': configurations.acceptType }
 			//data: { "ClipperId" : "123", "ServiceId" : "VTA", "Price" : 2.5, "Date" : "3 May 2019"
 		};
 
