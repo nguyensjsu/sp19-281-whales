@@ -131,5 +131,5 @@ angular
 
   })
   .run(function(localStorageService){
-      localStorageService.set('userData',{"clipperId":"1"});
+      //localStorageService.set('userData',{"clipperId":"1"});
   });

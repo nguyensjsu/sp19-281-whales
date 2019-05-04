@@ -30,7 +30,7 @@ angular.module('eclipperApp')
           console.log("storage"+localStorageService.get("userData"));
           paymentService.createPaymentAccount(self.user.clipperid).then(function(response){
               console.log("payment account created");
-               $state.go("login");
+              $state.go("home");
           },function(error){
 
           });
@@ -45,7 +45,7 @@ angular.module('eclipperApp')
          console.log(self.user);
 
          userService.signin(self.user).then(function(response){
-
+          self.user = response.data;
          localStorageService.set('userData', {"clipperId":self.user.clipperId});
          self.errorMessage = "";
          console.log(response);

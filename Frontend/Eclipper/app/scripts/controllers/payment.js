@@ -3,6 +3,7 @@ angular.module('eclipperApp')
   var self = this,
   init = function () {
     self.user = localStorageService.get("userData");
+    console.log(self.user);
     self.payment = angular.copy(paymentModel.payment);
     if(!self.isEmpty(self.user)){
       self.payment.clipperId = self.user.clipperId;
