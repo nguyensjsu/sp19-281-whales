@@ -118,10 +118,13 @@ angular.module('eclipperApp')
   }
 
   self.isEmpty = function(obj) {
+
     if(obj == null)
-    return true;
+      return true;
+    else if(obj == "")
+      return true;
     else if (obj.length == 0)
-    return true;
+      return true;
     return false;
   }
 
@@ -164,6 +167,8 @@ angular.module('eclipperApp')
   }
   self.isEmpty = function(obj) {
     if(obj == null)
+    return true;
+    else if(obj == "")
     return true;
     else if (obj.length == 0)
     return true;
@@ -212,9 +217,11 @@ angular.module('eclipperApp')
   }
   self.isEmpty = function(obj) {
     if(obj == null)
-    return true;
+      return true;
+    else if(obj == "")
+      return true;
     else if (obj.length == 0)
-    return true;
+      return true;
     return false;
   }
   init();
