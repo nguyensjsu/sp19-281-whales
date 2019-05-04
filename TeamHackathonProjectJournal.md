@@ -3,8 +3,13 @@
 ### We are the Whales!!!!
 
 ### Project 
-#### The Future of Clipper
-To be updated. Add introduction to what we have chosen.
+#### EClipper - The Future of Clipper
+
+The management of fare for number of transportation services can be electronically managed using the clipper card. The clipper card that is currently being used is probably based on the technology that has RFID to detect and sync the payment information. Aging equipment and new technologies have made the current card-based system increasingly obsolete, lacking features, such as mobile phone integration or the ability to immediately use value purchased online.
+
+We have taken our team project as an oppurtunity to build a SAAS application incorporating the most important features like access to many services from the same application, providing the services available based on the location, payment done online, facility check the previous transactions performed etc. We have also provided scope for new features to be added. It is designed to achieve scaling along all the axes of AKF cube hence catering the needs for it to be eventually scaled large enough as the number of users grow.
+
+
 
 ### Microservices 
 * UserRegistration - Manage user registration, logging in and accounts info
