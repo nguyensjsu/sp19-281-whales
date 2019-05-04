@@ -285,6 +285,15 @@ Database cluster Integration with apis is completed.
 * Prepared for the demo day.
 
 
+#### WOW Factor
+**Amazon EC2 Container Service**
+Amazonm ECS is a container service which is used to deploy services on a group of servers forming a cluster. ECS deploys docker container for distributed applications. It also evaluates the CPU usage and memory consumptions to determine the deployment requirements of a container. It used Appliation load balancer internally. We have deployed the payment microservice on ECS
+
+#### Performed scaling across all the axes of AKF cube
+The figure representing the same is shown below:
+
+
+
 ### Accomplished the task for building a SAAS application!!!!!!!!
 
 
