@@ -32,6 +32,7 @@ __*Callers*__ - Wallet microservice
 * **uID - Identifies the user account that initiated the transaction**
 * **sID - Identifies the service with which the transaction is associated**
 * **price - A float that states how much money was spent on this transaction**
+* **date - Timestamp capturing when the transaction was completed**
 
 #### Document structure with metadata - version 2
 * Will include all 4 fields from version 1
