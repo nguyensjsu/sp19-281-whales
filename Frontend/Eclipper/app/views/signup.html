@@ -1,3 +1,7 @@
+
+
+<div ng-controller="userCtrl as uCtrl">
+  <p style="color:red" class="text-align-center" ng-if="uCtrl.errorMessage!=''">{{uCtrl.errorMessage}}</p>
 <form class="form-horizontal">
 <fieldset>
 
@@ -8,7 +12,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="fn">First name</label>  
   <div class="col-md-4">
-  <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" required="">
+  <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" required="" ng-model="uCtrl.user.firstname">
     
   </div>
 </div>
@@ -17,7 +21,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="ln">Last name</label>  
   <div class="col-md-4">
-  <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" required="">
+  <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" required="" ng-model="uCtrl.user.lastname">
     
   </div>
 </div>
@@ -26,7 +30,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="phone">Phone</label>  
   <div class="col-md-4">
-  <input id="phone" name="phone" type="text" placeholder="Phone#" class="form-control input-md" required="">
+  <input id="phone" name="phone" type="text" placeholder="Phone#" class="form-control input-md" required="" ng-model="uCtrl.user.phone">
   </div>
 </div>
 
@@ -35,7 +39,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="email">Email</label>  
   <div class="col-md-4">
-  <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="">
+  <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="" ng-model="uCtrl.user.email">
     
   </div>
 </div>
@@ -46,7 +50,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="add1">Address</label>  
   <div class="col-md-4">
-  <input id="add1" name="add" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="add1" name="add" type="text" placeholder="" class="form-control input-md" required="" ng-model="uCtrl.user.address.street">
     
   </div>
 </div>
@@ -56,7 +60,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="city">City</label>  
   <div class="col-md-4">
-  <input id="city" name="city" type="text" placeholder="city" class="form-control input-md" required="">
+  <input id="city" name="city" type="text" placeholder="city" class="form-control input-md" required="" ng-model="uCtrl.user.address.city">
     
   </div>
 </div>
@@ -65,7 +69,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="zip">Zip Code</label>  
   <div class="col-md-4">
-  <input id="zip" name="zip" type="text" placeholder="Zip Code" class="form-control input-md" required="">
+  <input id="zip" name="zip" type="text" placeholder="Zip Code" class="form-control input-md" required="" ng-model="uCtrl.user.address.zipcode">
     
   </div>
 </div>
@@ -74,7 +78,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="ctry">State</label>  
   <div class="col-md-4">
-  <input id="state" name="state" type="text" placeholder="State" class="form-control input-md" required="">
+  <input id="state" name="state" type="text" placeholder="State" class="form-control input-md" required="" ng-model="uCtrl.user.address.state">
     
   </div>
 </div>
@@ -84,36 +88,38 @@
   <label class="col-md-4 control-label" for="Training">Do you have clipper ID</label>
   <div class="col-md-4"> 
     <label class="radio-inline" for="Training-0">
-      <input type="radio" name="Training" id="Training-0" value="yes" checked="checked">
+      <input type="radio" name="Training" id="Training-0" value="Y" checked="checked"  ng-model="uCtrl.user.clipperflag">
       Yes
     </label> 
     <label class="radio-inline" for="Training-1">
-      <input type="radio" name="Training" id="Training-1" value="no">
+      <input type="radio" name="Training" id="Training-1" value="N" ng-model="uCtrl.user.clipperflag">
       No
     </label>
   </div>
 </div>
 
+
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="clipperid">ClipperID</label>  
   <div class="col-md-4">
-  <input id="clipperid" name="clipperid" type="text" placeholder="clipper id#" class="form-control input-md" required="">
+  <input id="clipperid" name="clipperid" type="text" placeholder="clipper id#" class="form-control input-md" ng-model="uCtrl.user.clipperid" >
   </div>
 </div>
-
 
 
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+    <button id="submit" name="submit" class="btn btn-primary" ng-click="uCtrl.signup()">SUBMIT</button>
   </div>
 </div>
 
 <p class="form-group"> <center>By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>. </center>></p>
 
-<p><center>Already have an account? <a ui-sref="login">Sign in</a><center></p>
+<p><center>Already have an account? <a ui-sref="login">Sign in</a></center></p>
 
 </fieldset>
 </form>
+</div>
