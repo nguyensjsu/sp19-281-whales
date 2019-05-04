@@ -1,3 +1,21 @@
+## Infrastructure 
+1. MongoDB replica set
+2. Containerized application on AWS host in private subnet
+3. Classic load-balancer on AWS
+4. Containerized Kong API Gateway on AWS host in public subnet
+5. AngularJS front-end app
+6. Bootstrap HTML views
+
+## Server-side Code
+* Language - Go
+* Packages - 
+
+1. yaml (for parsing configuration) - Will be replaced with env variables
+2. codegangsta/negroni - Web server
+3. gorilla/mux - Router for serving requests
+4. unrolled/render - Formatting request/response content
+5. satori/go.uuid - Generating IDs for storing in MongoDB
+
 ## APIs
 
 APIs marked bold will be part of the first prototye
@@ -46,14 +64,3 @@ __*Callers*__ - Wallet microservice
 * VTA Bus - Only starting bus stop
 * Ford Bikes - Start and end bike station
 * Caltrain - Start and end train station
-
-
-## Server-side Code
-* Language - Go
-* Packages - 
-
-1. yaml (for parsing configuration) - Will be replaced with env variables
-2. codegangsta/negroni - Web server
-3. gorilla/mux - Router for serving requests
-4. unrolled/render - Formatting request/response content
-5. satori/go.uuid - Generating IDs for storing in MongoDB
