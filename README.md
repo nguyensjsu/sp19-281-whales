@@ -30,6 +30,8 @@ MongoDB replication is used to store the user collections. The backend is coded 
 **Menu**
 The menu service is to display the available services offerend for clipper account holders. The user can provide his location by specifying the Zip Code and obtain the corresponding services which are supposed to be more relavant at that particular location.
 
+**Paymemnt**
+User can add funds to the account. User can add payment methods to use on adding money to his account. User can order any service from the service menu provided he has sufficient balance. The DB of payment supports sharding on the basis of clipperId.
 ### Architecture
 ![Architecture](./E-ClipperImages/Architechture.jpeg)
 
