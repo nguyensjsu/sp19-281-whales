@@ -30,9 +30,16 @@ MongoDB replication is used to store the user collections. The backend is coded 
 **Menu**
 The menu service is to display the available services offerend for clipper account holders. The user can provide his location by specifying the Zip Code and obtain the corresponding services which are supposed to be more relavant at that particular location.
 
+**Paymemnt**
+After the use logged in, a user can check his current balance by going to Payment tab of the application. The user can add recharge his account by adding funds to his account. He can also provide payment methods to be used for recharging account. Moreover, a user can order any service by going to the At Your location? tab, there a user can select a service and can order it. The payment module is implemented in GOLang and is hosted on AWS sing aws Elastic Container Service. The Application load balancer is handling the request to the containers. The database of payment module supports Sharding and contains a query router, 3 config servers and 2 shard replica.
 ### Architecture
 ![Architecture](./E-ClipperImages/Architechture.jpeg)
 
 ### AKF Cube scaling 
 ![E-ClipperAKFCube](./E-ClipperImages/E-clipperAKFCube.jpeg)
+
+
+Application: https://eclipper-cmpe281.herokuapp.com/#!/home
+
+
 
