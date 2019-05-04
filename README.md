@@ -1,5 +1,4 @@
 ### :station: :bike: Project Title: **E-Clipper app** :bus:
-[Reference Link](https://www.futureofclipper.com/)
 
 
 ### :whale: Team: Whales :whale:
@@ -30,6 +29,9 @@ MongoDB replication is used to store the user collections. The backend is coded 
 
 **Menu**
 The menu service is to display the available services offerend for clipper account holders. The user can provide his location by specifying the Zip Code and obtain the corresponding services which are supposed to be more relavant at that particular location.
+
+The backend server code is written in node.js. MongoDB replication is maintained to provide CP to the application server. The Front end is wriiten using Angular framework. 
+
 
 ### Architecture
 ![Architecture](./E-ClipperImages/Architechture.jpeg)
