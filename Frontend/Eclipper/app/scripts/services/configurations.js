@@ -3,7 +3,7 @@
 
 angular.module('eclipperApp')
  .constant('configurations',{
-  'paymentUrl':'http://paymentELB-1601953061.us-east-1.elb.amazonaws.com',
+  'paymentUrl':'http://ec2-54-185-145-121.us-west-2.compute.amazonaws.com:8000/paymentapi',
 	'paymentServiceBase': '/clipperpayments',
 	'contentType':'application/x-www-form-urlencoded',
 	'acceptType':'application/json'

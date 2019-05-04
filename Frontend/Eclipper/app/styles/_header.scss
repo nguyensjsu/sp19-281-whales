@@ -1,0 +1,19 @@
+.header{
+
+.logout{
+  margin-top:6px;
+  float:right
+}
+.showLogout{
+  display: none;
+}
+  @media screen and (max-width:480px) {
+    .logout{
+      display: none;
+    }
+    .showLogout{
+      display: block;
+    }
+  }
+
+}

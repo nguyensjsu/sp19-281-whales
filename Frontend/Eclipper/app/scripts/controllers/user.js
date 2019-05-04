@@ -19,11 +19,16 @@ angular.module('eclipperApp')
       }
   }
   self.signup = function () {
-  	
-    console.log(self.user); 
+
+    console.log(self.user);
          userService.signup(self.user).then(function(response){
          	self.errorMessage = "";
-         $state.go("login");
+          paymentService.getPayment(1).then(function(response){
+              console.log("account created");
+               $state.go("login");
+          },function(error){
+
+          });        
       },function(error){
       	console.log(error);
         self.errorMessage = error.data.Message;
@@ -32,7 +37,7 @@ angular.module('eclipperApp')
   }
 
   self.signin = function () {
-         console.log(self.user); 
+         console.log(self.user);
 
          userService.signin(self.user).then(function(response){
 
@@ -45,7 +50,7 @@ angular.module('eclipperApp')
       	console.log(error);
       	self.errorMessage = error.data.Message;
         console.log(self.errorMessage);
-      });  
+      });
   }
   init();
 })
