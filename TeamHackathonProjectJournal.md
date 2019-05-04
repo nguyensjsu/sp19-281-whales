@@ -258,6 +258,7 @@ Database cluster Integration with apis is completed.
 * The application is ready with the required APIs. Tested locally. Also, dockerized the application. 
 * Now working on deploying it on AWS and integrating with Mongodb replicaset and testing the entire functioning.
 * Also, working on HTML part of the User microservice. 
+* Also, working on deploying the user module on ECS.
 
 **Manjunath** 
 * Created containaralized application for nodejs backend in AWS with mongoDB cluster.
@@ -273,6 +274,29 @@ Database cluster Integration with apis is completed.
 **Saliha**
 * Integration of Payment Service with Angular JS
 * Completed ngular js for the front end of the application.
+
+#### Day 24
+**Agenda** - Code Integration and deploy on heroku. Test end to end.
+* We had each of our microservice up and running.
+* One of the microservices, payment was deployed on ECS by Saliha as a WOW factor accomplishment.
+* Sorted out number of front end issues like display of error messages, local storage, page navigation, log out button.
+* Deployed the frontend on heroku
+* Created the overall architechture figure.
+* Prepared for the demo day.
+
+
+#### WOW Factor
+**Amazon EC2 Container Service**
+Amazonm ECS is a container service which is used to deploy services on a group of servers forming a cluster. ECS deploys docker container for distributed applications. It also evaluates the CPU usage and memory consumptions to determine the deployment requirements of a container. It used Appliation load balancer internally. We have deployed the payment microservice on ECS
+
+#### Performed scaling across all the axes of AKF cube
+The figure representing the same is shown below:
+
+![E-ClipperAKFCube](./E-ClipperImages/E-clipperAKFCube.jpeg)
+
+### Accomplished the task for building a SAAS application!!!!!!!!
+
+
 
 
 

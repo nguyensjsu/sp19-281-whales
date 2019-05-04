@@ -3,7 +3,6 @@ angular.module('eclipperApp')
   var self = this,
   init = function () {
     self.user = localStorageService.get("userData");
-    self.user = null;
     self.payment = angular.copy(paymentModel.payment);
     if(!self.isEmpty(self.user)){
       self.payment.clipperId = self.user.clipperId;
@@ -20,6 +19,7 @@ angular.module('eclipperApp')
         }
       },function(error){
         console.log(error);
+
       });
     }
   }
@@ -47,6 +47,7 @@ angular.module('eclipperApp')
         paymentService.addFunds(self.payment).then(function(response){
           if(response.statusText == "OK"){
             self.payment.funds = parseFloat("0.00");
+
           }else{
             self.payment.balance = parseFloat(self.payment.balance) - parseFloat(self.payment.funds);
           }
@@ -144,6 +145,7 @@ angular.module('eclipperApp')
         self.paymentMethod.pid = self.payment.paymentMethods.length+1+"";
         var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedId);
         self.paymentMethod.type = self.types[index].name;
+        self.paymentMethod.maskCard = self.paymentMethod.cardNumber.replace(/\d(?=\d{4})/g, "*");
         self.payment.paymentMethods.push(self.paymentMethod);
       }
       $uibModalInstance.close(self.payment);
@@ -186,6 +188,7 @@ angular.module('eclipperApp')
       self.paymentMethod.pid = self.item.length+1+"";
       var index = self.types.map(function(x){return x.id;}).indexOf(self.checkedType);
       self.paymentMethod.type = self.types[index].name;
+      self.paymentMethod.maskCard = self.paymentMethod.cardNumber.replace(/\d(?=\d{4})/g, "*");
       $uibModalInstance.close(self.paymentMethod);
     }else{
       self.error=true;
