@@ -31,7 +31,7 @@ MongoDB replication is used to store the user collections. The backend is coded 
 The menu service is to display the available services offerend for clipper account holders. The user can provide his location by specifying the Zip Code and obtain the corresponding services which are supposed to be more relavant at that particular location.
 
 ### Architecture
-![Architecture](./E-ClipperImages/Architecture.jpeg)
+![Architecture](./E-ClipperImages/Architechture.jpeg)
 
 ### AKF Cube scaling 
 ![E-ClipperAKFCube](./E-ClipperImages/E-clipperAKFCube.jpeg)
