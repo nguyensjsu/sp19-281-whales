@@ -18,7 +18,7 @@ We have taken our team project as an oppurtunity to build a SAAS application inc
 
 ### Technologies Used
 Backend: GoLang, MongoDB, NodeJs </br>
-Frontend: AngularJs
+Frontend: AngularJs, Bootstrap
  
 ### Summary Of Every Module
 
@@ -31,7 +31,12 @@ MongoDB replication is used to store the user collections. The backend is coded 
 The menu service is to display the available services offerend for clipper account holders. The user can provide his location by specifying the Zip Code and obtain the corresponding services which are supposed to be more relavant at that particular location.
 
 **Paymemnt**
-After the use logged in, a user can check his current balance by going to Payment tab of the application. The user can add recharge his account by adding funds to his account. He can also provide payment methods to be used for recharging account. Moreover, a user can order any service by going to the At Your location? tab, there a user can select a service and can order it. The payment module is implemented in GOLang and is hosted on AWS sing aws Elastic Container Service. The Application load balancer is handling the request to the containers. The database of payment module supports Sharding and contains a query router, 3 config servers and 2 shard replica.
+After the user has logged in, a user can check his current balance by going to Payment tab of the application. The user can add recharge his account by adding funds to his account. He can also provide payment methods to be used for recharging account. Moreover, a user can order any service by going to the At Your location? tab, there a user can select a service and can order it. The payment module is implemented in GOLang and is hosted on AWS sing aws Elastic Container Service. The Application load balancer is handling the request to the containers. The database of payment module supports Sharding and contains a query router, 3 config servers and 2 shard replica.
+
+**Transactions History**
+Every purchase that is successfully paid for will get logged in the TransactionsHistory module. This module will keep a log of the exact date and time when the purchase happened, what service was bought and what was the amount spent. This log is shown to the user if s/he is logged in.
+MongoDB was the choice of database for this module because of its suitability to structed data and schema-less flexibility.
+
 ### Architecture
 ![Architecture](./E-ClipperImages/Architechture.jpeg)
 
