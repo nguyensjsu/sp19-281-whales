@@ -15,9 +15,12 @@ import (
 
 // MongoDB Config
 // ToDo : Get from config
-var mongodb_server = "localhost"
+var mongodb_server = "mongodb://10.0.1.234:27017,10.0.1.18:27017,10.0.1.107:27017"
 var mongodb_database = "eclipper"
 var mongodb_collection = "transactions"
+var mongo_admin_database =  "admin"
+var mongo_username = "admin"
+var mongo_password = "*****"
 
 // NewServer configures and returns a Server.
 func NewServer() *negroni.Negroni {
@@ -36,9 +39,6 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/transactions", getTransListHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/transactions", createNewTransHandler(formatter)).Methods("POST")
-//	mx.HandleFunc("/order/{id}", gumballOrderStatusHandler(formatter)).Methods("GET")
-//	mx.HandleFunc("/order", gumballOrderStatusHandler(formatter)).Methods("GET")
-//	mx.HandleFunc("/orders", gumballProcessOrdersHandler(formatter)).Methods("POST")
 }
 
 // Helper Functions
@@ -56,14 +56,32 @@ func pingHandler(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+// API Ping Handler
+func corsHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		formatter.JSON(w, http.StatusOK, struct{ Test string }{"API version 1.0 alive!"})
+        fmt.Printf("I am CORS")
+	}
+}
+
 // API Gumball Machine Handler
 func getTransListHandler(formatter *render.Render) http.HandlerFunc {
     return func(w http.ResponseWriter, req *http.Request) {
 
+        enableCors(&w)
         session, err := mgo.Dial(mongodb_server)
         if err != nil {
             panic(err)
         }
+
+        err = session.DB(mongo_admin_database).Login(mongo_username, mongo_password)
+	if err != nil {
+		message := struct {Message string}{"Error while connecting to database!!"}
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(message)
+		return
+	}
+
         defer session.Close()
         session.SetMode(mgo.Monotonic, true)
         c := session.DB(mongodb_database).C(mongodb_collection)
@@ -73,7 +91,7 @@ func getTransListHandler(formatter *render.Render) http.HandlerFunc {
         if err != nil {
             log.Fatal(err)
         }
-
+        fmt.Printf("I have CORS")
         fmt.Println("Transactions:", result )
             formatter.JSON(w, http.StatusOK, result)
 	}
@@ -83,6 +101,8 @@ func getTransListHandler(formatter *render.Render) http.HandlerFunc {
 func createNewTransHandler(formatter *render.Render) http.HandlerFunc {
     return func(w http.ResponseWriter, req *http.Request) {
 
+        fmt.Printf("I have CORS")
+        enableCors(&w)
         var t transReq
         _ = json.NewDecoder(req.Body).Decode(&t)
 
@@ -90,13 +110,23 @@ func createNewTransHandler(formatter *render.Render) http.HandlerFunc {
         if err != nil {
                 panic(err)
         }
+
+        err = session.DB(mongo_admin_database).Login(mongo_username, mongo_password)
+	if err != nil {
+		message := struct {Message string}{"Error while connecting to database!!"}
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(message)
+		return
+	}
+
         defer session.Close()
         session.SetMode(mgo.Monotonic, true)
         c := session.DB(mongodb_database).C(mongodb_collection)
 
-        log.Println(t.UserId)
+        log.Println(t.ClipperId)
         log.Println(t.ServiceId)
         log.Println(t.Price)
+        log.Println(t.Date)
 
         uuid := uuid.NewV4()
         var trans = transactions {
@@ -104,6 +134,7 @@ func createNewTransHandler(formatter *render.Render) http.HandlerFunc {
             UserId:    t.UserId,
             ServiceId: t.ServiceId,
             Price:     t.Price,
+            Date:      t.Date,
         }
 
         err = c.Insert(trans)
@@ -113,4 +144,8 @@ func createNewTransHandler(formatter *render.Render) http.HandlerFunc {
 
         formatter.JSON(w, http.StatusOK, "Done")
     }
+}
+
+func enableCors(w *http.ResponseWriter) {
+        (*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
