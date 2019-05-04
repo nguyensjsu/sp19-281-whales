@@ -292,7 +292,7 @@ Amazonm ECS is a container service which is used to deploy services on a group o
 #### Performed scaling across all the axes of AKF cube
 The figure representing the same is shown below:
 
-
+![E-ClipperAKFCube](./E-ClipperImages/E-clipperAKFCube.jpeg)
 
 ### Accomplished the task for building a SAAS application!!!!!!!!
 
