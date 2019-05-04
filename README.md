@@ -10,6 +10,9 @@
  * [Prathamesh Karve](https://github.com/PrathamR) - TransactionsHistory
  * [Saliha Mehboob](https://github.com/salihasjsu) - Payment
  
+ ### Link to the application
+ Application: https://eclipper-cmpe281.herokuapp.com/#!/home
+ 
  ### Application Overview
  
 The management of fare for number of transportation services can be electronically managed using the clipper card. The clipper card that is currently being used is probably based on the technology that has RFID to detect and sync the payment information. Aging equipment and new technologies have made the current card-based system increasingly obsolete, lacking features, such as mobile phone integration or the ability to immediately use value purchased online.
@@ -47,7 +50,7 @@ Designed and developed the TransactionsHistory microservice. GoContainerized the
 ![E-ClipperAKFCube](./E-ClipperImages/E-clipperAKFCube.jpeg)
 
 
-Application: https://eclipper-cmpe281.herokuapp.com/#!/home
+
 
 
 
