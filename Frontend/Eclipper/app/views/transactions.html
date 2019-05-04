@@ -13,8 +13,8 @@
         
     <span class="border border-dark">-->
     <div class="container-bg col-sm-4 rounded col-sm-offset-1" style="padding-top: 15px;"   ng-repeat="item in tCtrl.trans">
-        <div class="col-sm-12">
-          <p class="text-white" style="background-color:#1f7acf" >{{item.Date}}</p>
+        <div class="col-sm-12" style="background-color:#1f7acf">
+          <p class="text-white" style="background-color:#a3dd61" >{{item.Date | date : "dd MMM yyyy HH:mm:ss"}}</p>
           <div class="grey"> Price : $ {{item.Price}}</div>
           <div>Service: {{item.ServiceId}}</div>
         </div>
