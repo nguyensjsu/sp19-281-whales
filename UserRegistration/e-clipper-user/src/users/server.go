@@ -377,6 +377,7 @@ func UserSignIn(w http.ResponseWriter, req *http.Request) {
 						"firstName":result.Firstname,
 						"lastName":result.Lastname,
 						"address":result.Address,
-						"id":result.Id}
+						"id":result.Id,
+					        "clipperid":result.Clipperid}
 	json.NewEncoder(w).Encode(userData)
 }
