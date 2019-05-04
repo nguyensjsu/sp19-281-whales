@@ -3,6 +3,7 @@ angular.module('eclipperApp')
   var self = this,
   init = function () {
     self.user = localStorageService.get("userData");
+    console.log(self.user);
     self.payment = angular.copy(paymentModel.payment);
     if(!self.isEmpty(self.user)){
       self.payment.clipperId = self.user.clipperId;
@@ -117,10 +118,13 @@ angular.module('eclipperApp')
   }
 
   self.isEmpty = function(obj) {
+
     if(obj == null)
-    return true;
+      return true;
+    else if(obj == "")
+      return true;
     else if (obj.length == 0)
-    return true;
+      return true;
     return false;
   }
 
@@ -163,6 +167,8 @@ angular.module('eclipperApp')
   }
   self.isEmpty = function(obj) {
     if(obj == null)
+    return true;
+    else if(obj == "")
     return true;
     else if (obj.length == 0)
     return true;
@@ -211,9 +217,11 @@ angular.module('eclipperApp')
   }
   self.isEmpty = function(obj) {
     if(obj == null)
-    return true;
+      return true;
+    else if(obj == "")
+      return true;
     else if (obj.length == 0)
-    return true;
+      return true;
     return false;
   }
   init();

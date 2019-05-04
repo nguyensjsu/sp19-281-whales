@@ -29,6 +29,7 @@ The plan is to eventually implement a couple of the following:
 1. grpc / Protobuf for marshalling instead of JSON
 2. Autodeployment using Jenkins
 3. VPC peering
+4. Using ECS to deploy the containers
 
 #### Day 1 
 **Minutes of Meeting on 04/10/2019**
@@ -289,12 +290,18 @@ Database cluster Integration with apis is completed.
 **Amazon EC2 Container Service**
 Amazonm ECS is a container service which is used to deploy services on a group of servers forming a cluster. ECS deploys docker container for distributed applications. It also evaluates the CPU usage and memory consumptions to determine the deployment requirements of a container. It used Appliation load balancer internally. We have deployed the payment microservice on ECS
 
+#### Architecture 
+The figure below represents pictorially the overall accomplishment in our team project.
+![Architecture](./E-ClipperImages/Architechture.jpeg)
+
 #### Performed scaling across all the axes of AKF cube
 The figure representing the same is shown below:
 
 ![E-ClipperAKFCube](./E-ClipperImages/E-clipperAKFCube.jpeg)
 
 ### Accomplished the task for building a SAAS application!!!!!!!!
+
+
 
 
 

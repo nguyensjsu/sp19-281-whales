@@ -57,7 +57,7 @@ angular.module('eclipperApp')
   }
   self.placeOrder = function (item) {
     var user = localStorageService.get("userData");
-    if(user != null || user!= ""){
+    if(!self.isEmpty(user)){
       if(self.payment.balance < parseFloat(item.cost)){
         self.popup("Please recharge your account first.");
       }else{
@@ -86,7 +86,7 @@ angular.module('eclipperApp')
   }
   self.getPaymentAccount = function() {
     var user = localStorageService.get("userData");
-    if(user != null || user!= ""){
+    if(!self.isEmpty(user)){
       paymentService.getPayment(user.clipperId).then(function(response){
         console.log(response);
         self.payment = angular.copy(paymentModel.payment);
@@ -121,6 +121,12 @@ angular.module('eclipperApp')
     });
   }
 
-
+self.isEmpty = function(obj){
+  if(obj == null)
+  return true;
+  else if (obj == 'undefined')
+  return true;
+  return false;
+}
   init();
 });
