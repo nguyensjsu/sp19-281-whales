@@ -258,6 +258,7 @@ Database cluster Integration with apis is completed.
 * The application is ready with the required APIs. Tested locally. Also, dockerized the application. 
 * Now working on deploying it on AWS and integrating with Mongodb replicaset and testing the entire functioning.
 * Also, working on HTML part of the User microservice. 
+* Also, working on deploying the user module on ECS.
 
 **Manjunath** 
 * Created containaralized application for nodejs backend in AWS with mongoDB cluster.
@@ -273,6 +274,20 @@ Database cluster Integration with apis is completed.
 **Saliha**
 * Integration of Payment Service with Angular JS
 * Completed ngular js for the front end of the application.
+
+#### Day 24
+**Agenda** - Code Integration and deploy on heroku. Test end to end.
+* We had each of our microservice up and running.
+* One of the microservices, payment was deployed on ECS by Saliha as a WOW factor accomplishment.
+* Sorted out number of front end issues like display of error messages, local storage, page navigation, log out button.
+* Deployed the frontend on heroku
+* Created the overall architechture figure.
+* Prepared for the demo day.
+
+
+### Accomplished the task for building a SAAS application!!!!!!!!
+
+
 
 
 
