@@ -8,7 +8,7 @@
  * Controller of the eclipperApp
  */
 angular.module('eclipperApp')
-.controller('userCtrl', function ($state, userModel,localStorageService, userService) {
+.controller('userCtrl', function ($state, userModel,localStorageService, userService, paymentService) {
     var self = this,
   init = function () {
   	self.errorMessage = "";
@@ -21,14 +21,19 @@ angular.module('eclipperApp')
   self.signup = function () {
 
     console.log(self.user);
+
          userService.signup(self.user).then(function(response){
          	self.errorMessage = "";
-          paymentService.getPayment(1).then(function(response){
-              console.log("account created");
+          self.user = response.data;
+          localStorageService.set('userData', {"clipperId":self.user.clipperid});
+          console.log(response);
+          console.log("storage"+localStorageService.get("userData"));
+          paymentService.createPaymentAccount(self.user.clipperid).then(function(response){
+              console.log("payment account created");
                $state.go("login");
           },function(error){
 
-          });        
+          });
       },function(error){
       	console.log(error);
         self.errorMessage = error.data.Message;
@@ -41,7 +46,7 @@ angular.module('eclipperApp')
 
          userService.signin(self.user).then(function(response){
 
-         localStorageService.set('userData', {"clipperId":self.user.clipperid});
+         localStorageService.set('userData', {"clipperId":self.user.clipperId});
          self.errorMessage = "";
          console.log(response);
          $state.go("services");

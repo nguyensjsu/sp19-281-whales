@@ -7,6 +7,7 @@ angular.module('eclipperApp')
     var _createPaymentAccount = function(clipperId){
       var data = paymentModel.payment;
       data.clipperId = clipperId;
+			console.log(data);
       var deferred = $q.defer();
       var request = {
         method: 'POST',
