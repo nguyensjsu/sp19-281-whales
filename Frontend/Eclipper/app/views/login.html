@@ -1,4 +1,5 @@
-<div class="login"> 
+<div class="login" ng-controller="userCtrl as uCtrl">
+  <p style="color:red" class="text-align-center" ng-if="uCtrl.errorMessage!=''">{{uCtrl.errorMessage}}</p>
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -10,12 +11,16 @@
 
     <!-- Login Form -->
     <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="EmailID">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="text" id="emailId" class="fadeIn second" name="emailId" placeholder="EmailID" ng-model="uCtrl.user.email">
+
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" ng-model="uCtrl.user.password"><p></p>
+      <input type="submit" class="fadeIn fourth" value="Log In" ng-click="uCtrl.signin()" ng-submit="uctrl.navigate()">
     </form>
  
- <p><center>Don't have an account? <a ui-sref="signup">Sign Up</a><center></p>
+ <p><center>Don't have an account? 
+  <a ui-sref= "signup" >Sign Up</a>
+  </center>
+ </p>
   </div>
 </div>
 </div>
